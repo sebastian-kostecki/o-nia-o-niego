@@ -1,13 +1,6 @@
 <template>
   <ion-page>
-    <ion-menu contentId="main-content">
-      <ion-header>
-        <ion-toolbar>
-          <ion-title>Menu Content</ion-title>
-        </ion-toolbar>
-      </ion-header>
-      <ion-content class="ion-padding">This is the menu content.</ion-content>
-    </ion-menu>
+    <menu-list></menu-list>
     <div class="ion-page" id="main-content">
       <ion-header>
         <ion-toolbar>
@@ -31,9 +24,9 @@ import {
   IonTitle,
   IonContent,
   IonToolbar,
-  IonMenu,
   IonButtons,
 } from "@ionic/vue";
+import MenuList from "../components/MenuApp.vue";
 export default {
   name: "dash-board",
   components: {
@@ -42,8 +35,8 @@ export default {
     IonTitle,
     IonContent,
     IonToolbar,
-    IonMenu,
     IonButtons,
+    MenuList,
   },
 };
 </script>
