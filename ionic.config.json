@@ -1,0 +1,7 @@
+{
+  "name": "OnaOn",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue"
+}
