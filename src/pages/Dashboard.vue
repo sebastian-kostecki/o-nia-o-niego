@@ -22,6 +22,9 @@
             >
           </ion-card-header>
         </ion-card>
+        <ion-button size="large" expand="block" fill="outline"
+          >Pomodliłem się</ion-button
+        >
       </ion-content>
     </div>
   </ion-page>
@@ -35,6 +38,7 @@ import {
   IonContent,
   IonToolbar,
   IonButtons,
+  IonButton,
 } from "@ionic/vue";
 import MenuApp from "../components/MenuApp.vue";
 export default {
@@ -47,6 +51,7 @@ export default {
     IonToolbar,
     IonButtons,
     MenuApp,
+    IonButton,
   },
   computed: {
     dateNow() {
@@ -90,8 +95,16 @@ img {
 }
 
 ion-card {
-  top: 64px;
+  margin-top: 64px;
   margin-left: 16px;
   margin-right: 16px;
+}
+
+ion-button {
+  --padding-top: 10px;
+  --padding-bottom: 10px;
+  margin: 16px;
+  color: white;
+  --border-color: white;
 }
 </style>
