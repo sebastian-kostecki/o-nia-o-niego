@@ -12,21 +12,37 @@
       </ion-header>
       <ion-content>
         <ion-list lines="none">
-          <ion-item>
-            <ion-label position="floating">Nazwa róży</ion-label>
-            <ion-input></ion-input>
+          <ion-item class="ion-margin-horizontal">
+            <ion-label position="stacked">Nazwa róży</ion-label>
+            <ion-input placeholder="Wpisz nazwę róży"></ion-input>
           </ion-item>
-          <ion-item>
-            <ion-label position="floating">Początek modlitwy</ion-label>
-            <ion-input></ion-input>
+          <ion-item class="ion-margin-horizontal">
+            <ion-label position="stacked">Początek modlitwy</ion-label>
+            <ion-input type="date"></ion-input>
           </ion-item>
-          <ion-item>
-            <ion-label position="floating">Pierwsza tajemnica</ion-label>
-            <ion-input placeholder="Enter text"></ion-input>
+          <ion-item class="ion-margin-horizontal">
+            <ion-label position="stacked">Pierwsza tajemnica</ion-label>
+            <ion-select
+              interface="popover"
+              placeholder="Wybierz tajemnicę różańca"
+            >
+              <ion-select-option value="apples">Apples</ion-select-option>
+              <ion-select-option value="oranges">Oranges</ion-select-option>
+              <ion-select-option value="bananas">Bananas</ion-select-option>
+              <ion-select-option value="apples">Apples</ion-select-option>
+              <ion-select-option value="oranges">Oranges</ion-select-option>
+              <ion-select-option value="bananas">Bananas</ion-select-option>
+              <ion-select-option value="apples">Apples</ion-select-option>
+              <ion-select-option value="oranges">Oranges</ion-select-option>
+              <ion-select-option value="bananas">Bananas</ion-select-option>
+            </ion-select>
           </ion-item>
-          <ion-item>
-            <ion-label position="floating">Płeć</ion-label>
-            <ion-input></ion-input>
+          <ion-item class="ion-margin-horizontal">
+            <ion-label position="stacked">Płeć</ion-label>
+            <ion-select interface="popover" placeholder="Wybierz płeć">
+              <ion-select-option value="women">Kobieta</ion-select-option>
+              <ion-select-option value="men">Mężczyzna</ion-select-option>
+            </ion-select>
           </ion-item>
         </ion-list>
       </ion-content>
@@ -45,6 +61,7 @@ import {
   IonList,
   IonItem,
   IonInput,
+  IonLabel,
 } from "@ionic/vue";
 import MenuApp from "../components/MenuApp.vue";
 export default {
@@ -60,6 +77,8 @@ export default {
     IonList,
     IonItem,
     IonInput,
+
+    IonLabel,
   },
 };
 </script>
