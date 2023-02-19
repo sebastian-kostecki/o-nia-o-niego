@@ -12,6 +12,7 @@
       </ion-header>
       <ion-content>
         <p>{{ dateNow }}</p>
+        <p>{{ mysteryOfRosary }}</p>
       </ion-content>
     </div>
   </ion-page>
@@ -38,17 +39,26 @@ export default {
     IonButtons,
     MenuApp,
   },
-  computed: {
-    dateNow() {
-      const date = new Date("November 13, 2023");
-      const day = date.getDate().toString();
-      const month = date.toLocaleString("default", { month: "long" });
-      const year = date.getFullYear().toString();
-      const formattedDate = `${day} ${month} ${year}`;
-      return formattedDate;
-    },
+  dateNow() {
+    const date = new Date("November 13, 2023");
+    const day = date.getDate().toString();
+    const month = date.toLocaleString("default", { month: "long" });
+    const year = date.getFullYear().toString();
+    const formattedDate = `${day} ${month} ${year}`;
+    return formattedDate;
+  },
+  mysteryOfRosary() {
+    return "Tajemnica Światła";
   },
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+ion-toolbar {
+  --background: transparent no-repeat fixed center;
+  --color: white;
+  font-style: bold;
+  position: absolute;
+  top: 0;
+}
+</style>
