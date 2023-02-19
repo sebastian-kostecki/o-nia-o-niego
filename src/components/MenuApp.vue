@@ -7,11 +7,11 @@
     </ion-header>
     <ion-content>
       <ion-list lines="none">
-        <ion-item>
+        <ion-item href="/dashboard">
           <ion-icon :icon="home" slot="start"></ion-icon>
           <ion-label>Start</ion-label>
         </ion-item>
-        <ion-item>
+        <ion-item href="/settings">
           <ion-icon :icon="settings" slot="start"></ion-icon>
           <ion-label>Ustawienia</ion-label>
         </ion-item>
@@ -54,4 +54,4 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped></style>
