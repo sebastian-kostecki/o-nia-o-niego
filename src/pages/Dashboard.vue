@@ -11,15 +11,7 @@
         </ion-toolbar>
       </ion-header>
       <ion-content>
-        <ion-card color="light">
-          <ion-card-header class="ion-text-center">
-            <ion-card-title>{{ dateNow }}</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>
-            <ion-chip>{{ mysteryOfRosary }}</ion-chip>
-          </ion-card-content>
-        </ion-card>
-        <div id="footer">asa</div>
+        <img src="../assets/rosary.png" alt="rosary" />
       </ion-content>
     </div>
   </ion-page>
@@ -33,7 +25,6 @@ import {
   IonContent,
   IonToolbar,
   IonButtons,
-  IonChip,
 } from "@ionic/vue";
 import MenuApp from "../components/MenuApp.vue";
 export default {
@@ -46,7 +37,6 @@ export default {
     IonToolbar,
     IonButtons,
     MenuApp,
-    IonChip,
   },
   computed: {
     dateNow() {
@@ -72,6 +62,23 @@ ion-toolbar {
   position: absolute;
   top: 0;
 }
+
+ion-content {
+  --background: #6c51aa;
+}
+
+img {
+  opacity: 0.1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
 ion-card {
   top: 15vh;
   margin: 16px;
