@@ -12,6 +12,16 @@
       </ion-header>
       <ion-content>
         <img src="../assets/rosary.png" alt="rosary" />
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title color="primary">{{
+              mysteryOfRosary
+            }}</ion-card-title>
+            <ion-card-subtitle
+              >{{ dateNow }}<br />Do końca pozostało 245 dni.</ion-card-subtitle
+            >
+          </ion-card-header>
+        </ion-card>
       </ion-content>
     </div>
   </ion-page>
@@ -40,7 +50,7 @@ export default {
   },
   computed: {
     dateNow() {
-      const date = new Date("November 13, 2023");
+      const date = new Date();
       const day = date.getDate().toString();
       const month = date.toLocaleString("default", { month: "long" });
       const year = date.getFullYear().toString();
@@ -80,22 +90,8 @@ img {
 }
 
 ion-card {
-  top: 15vh;
-  margin: 16px;
-  position: absolute;
-}
-
-ion-chip {
-  --background: #6c51aa;
-  --color: white;
-  font-size: large;
-}
-
-#footer {
-  background-color: #f3f2f7;
-  bottom: 0;
-  position: absolute;
-  height: 50vh;
-  width: 100vw;
+  top: 64px;
+  margin-left: 16px;
+  margin-right: 16px;
 }
 </style>
