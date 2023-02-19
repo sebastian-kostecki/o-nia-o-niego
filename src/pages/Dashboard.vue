@@ -10,7 +10,9 @@
           <ion-title>O Nią & O Niego</ion-title>
         </ion-toolbar>
       </ion-header>
-      <ion-content> </ion-content>
+      <ion-content>
+        <p>{{ dateNow }}</p>
+      </ion-content>
     </div>
   </ion-page>
 </template>
@@ -35,6 +37,16 @@ export default {
     IonToolbar,
     IonButtons,
     MenuApp,
+  },
+  computed: {
+    dateNow() {
+      const date = new Date("November 13, 2023");
+      const day = date.getDate().toString();
+      const month = date.toLocaleString("default", { month: "long" });
+      const year = date.getFullYear().toString();
+      const formattedDate = `${day} ${month} ${year}`;
+      return formattedDate;
+    },
   },
 };
 </script>
