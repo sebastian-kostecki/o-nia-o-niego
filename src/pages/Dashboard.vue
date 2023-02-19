@@ -22,6 +22,15 @@
             >
           </ion-card-header>
         </ion-card>
+        <ion-card id="reflections">
+          <ion-card-header>
+            <ion-card-title color="primary">Rozważania</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            Here's a small text description for the card content. Nothing more,
+            nothing less.
+          </ion-card-content>
+        </ion-card>
         <ion-button size="large" expand="block" fill="outline"
           >Pomodliłem się</ion-button
         >
@@ -98,6 +107,10 @@ ion-card {
   margin-top: 64px;
   margin-left: 16px;
   margin-right: 16px;
+}
+
+#reflections {
+  margin: 16px;
 }
 
 ion-button {
