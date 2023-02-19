@@ -11,8 +11,15 @@
         </ion-toolbar>
       </ion-header>
       <ion-content>
-        <p>{{ dateNow }}</p>
-        <p>{{ mysteryOfRosary }}</p>
+        <ion-card color="light">
+          <ion-card-header class="ion-text-center">
+            <ion-card-title>{{ dateNow }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-chip>{{ mysteryOfRosary }}</ion-chip>
+          </ion-card-content>
+        </ion-card>
+        <div id="footer">asa</div>
       </ion-content>
     </div>
   </ion-page>
@@ -26,6 +33,7 @@ import {
   IonContent,
   IonToolbar,
   IonButtons,
+  IonChip,
 } from "@ionic/vue";
 import MenuApp from "../components/MenuApp.vue";
 export default {
@@ -38,17 +46,20 @@ export default {
     IonToolbar,
     IonButtons,
     MenuApp,
+    IonChip,
   },
-  dateNow() {
-    const date = new Date("November 13, 2023");
-    const day = date.getDate().toString();
-    const month = date.toLocaleString("default", { month: "long" });
-    const year = date.getFullYear().toString();
-    const formattedDate = `${day} ${month} ${year}`;
-    return formattedDate;
-  },
-  mysteryOfRosary() {
-    return "Tajemnica Światła";
+  computed: {
+    dateNow() {
+      const date = new Date("November 13, 2023");
+      const day = date.getDate().toString();
+      const month = date.toLocaleString("default", { month: "long" });
+      const year = date.getFullYear().toString();
+      const formattedDate = `${day} ${month} ${year}`;
+      return formattedDate;
+    },
+    mysteryOfRosary() {
+      return "Tajemnica Światła";
+    },
   },
 };
 </script>
@@ -60,5 +71,24 @@ ion-toolbar {
   font-style: bold;
   position: absolute;
   top: 0;
+}
+ion-card {
+  top: 15vh;
+  margin: 16px;
+  position: absolute;
+}
+
+ion-chip {
+  --background: #6c51aa;
+  --color: white;
+  font-size: large;
+}
+
+#footer {
+  background-color: #f3f2f7;
+  bottom: 0;
+  position: absolute;
+  height: 50vh;
+  width: 100vw;
 }
 </style>
