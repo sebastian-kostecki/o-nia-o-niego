@@ -1,66 +1,38 @@
 <template>
-  <ion-page>
-    <menu-app></menu-app>
-    <div class="ion-page" id="main-content">
-      <ion-header>
-        <ion-toolbar>
-          <ion-buttons slot="start">
-            <ion-menu-button></ion-menu-button>
-          </ion-buttons>
-          <ion-title>O Nią & O Niego</ion-title>
-        </ion-toolbar>
-      </ion-header>
-      <ion-content>
-        <img src="../assets/rosary.png" alt="rosary" />
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title color="primary">{{
-              mysteryOfRosary
-            }}</ion-card-title>
-            <ion-card-subtitle
-              >{{ dateNow }}<br />Do końca pozostało 245 dni.</ion-card-subtitle
-            >
-          </ion-card-header>
-        </ion-card>
-        <ion-card id="reflections">
-          <ion-card-header>
-            <ion-card-title color="primary">Rozważania</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>
-            Here's a small text description for the card content. Nothing more,
-            nothing less.
-          </ion-card-content>
-        </ion-card>
-        <ion-button size="large" expand="block" fill="outline"
-          >Pomodliłem się</ion-button
+  <base-layout title="Ona & On">
+    <img src="../assets/rosary.png" alt="rosary" />
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title color="primary">{{ mysteryOfRosary }}</ion-card-title>
+        <ion-card-subtitle
+          >{{ dateNow }}<br />Do końca pozostało 245 dni.</ion-card-subtitle
         >
-      </ion-content>
-    </div>
-  </ion-page>
+      </ion-card-header>
+    </ion-card>
+    <ion-card id="reflections">
+      <ion-card-header>
+        <ion-card-title color="primary">Rozważania</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet in ex
+        doloremque inventore, possimus quam eaque laboriosam aut nulla ipsa non
+        nisi nesciunt doloribus, sapiente est facere porro expedita dolor?
+      </ion-card-content>
+    </ion-card>
+    <ion-button size="large" expand="block" fill="outline"
+      >Pomodliłem się</ion-button
+    >
+  </base-layout>
 </template>
 
 <script>
-import {
-  IonPage,
-  IonHeader,
-  IonTitle,
-  IonContent,
-  IonToolbar,
-  IonButtons,
-  IonButton,
-} from "@ionic/vue";
-import MenuApp from "../components/MenuApp.vue";
+import { IonButton } from "@ionic/vue";
+import BaseLayout from "../components/BaseLayout.vue";
 export default {
   name: "dash-board",
   components: {
-    IonPage,
-    IonHeader,
-    IonTitle,
-    IonContent,
-    IonToolbar,
-    IonButtons,
-    MenuApp,
     IonButton,
+    BaseLayout,
   },
   computed: {
     dateNow() {

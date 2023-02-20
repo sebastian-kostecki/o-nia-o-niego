@@ -27,7 +27,7 @@ import {
   IonTitle,
   IonContent,
 } from "@ionic/vue";
-import SidebarContent from "./SidebarContent.vue";
+import SidebarContent from "./sidebar/Sidebar.vue";
 export default {
   name: "BaseLayout",
   components: {
@@ -53,5 +53,9 @@ ion-toolbar {
   font-style: bold;
   position: absolute;
   top: 0;
+}
+
+ion-content {
+  --background: var(--ion-color-primary);
 }
 </style>
