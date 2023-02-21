@@ -48,14 +48,11 @@ export default {
 
 <style scoped>
 ion-toolbar {
-  --background: transparent no-repeat fixed center;
-  --color: white;
-  font-style: bold;
-  position: absolute;
-  top: 0;
+  --background: var(--ion-color-primary);
+  --color: var(--ion-color-primary-contrast);
 }
 
-ion-content {
-  --background: var(--ion-color-primary);
-}
+/*ion-content {*/
+/*  --background: var(--ion-color-primary);*/
+/*}*/
 </style>

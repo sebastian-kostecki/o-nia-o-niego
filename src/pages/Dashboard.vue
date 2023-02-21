@@ -19,7 +19,14 @@
         nisi nesciunt doloribus, sapiente est facere porro expedita dolor?
       </ion-card-content>
     </ion-card>
-    <ion-button size="large" expand="block" fill="outline"
+    <ion-card id="reading">
+      <ion-card-header>
+        <ion-card-title color="primary">Ewangelia na dziś</ion-card-title>
+        <ion-card-subtitle>{{ gospelTitle }}</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content> {{ gospel }} </ion-card-content>
+    </ion-card>
+    <ion-button size="large" expand="block" fill="outline" @click="getGospel"
       >Pomodliłem się</ion-button
     >
   </base-layout>
@@ -28,11 +35,18 @@
 <script>
 import { IonButton } from "@ionic/vue";
 import BaseLayout from "../components/BaseLayout.vue";
+import axios from "axios";
 export default {
   name: "dash-board",
   components: {
     IonButton,
     BaseLayout,
+  },
+  data() {
+    return {
+      gospel: "",
+      gospelTitle: "",
+    };
   },
   computed: {
     dateNow() {
@@ -45,6 +59,26 @@ export default {
     },
     mysteryOfRosary() {
       return "Tajemnica Światła";
+    },
+  },
+  ionViewDidEnter() {
+    this.getGospel();
+  },
+  methods: {
+    getGospel() {
+      axios
+        .get("https://publication.evangelizo.ws/PL/days/2023-02-21")
+        .then((response) => {
+          console.log(response);
+          this.gospel = response.data.data.readings[2].text;
+          this.gospelTitle = response.data.data.readings[2].title;
+        })
+        .catch(function () {
+          // handle error
+        })
+        .finally(function () {
+          // always executed
+        });
     },
   },
 };
@@ -81,7 +115,8 @@ ion-card {
   margin-right: 16px;
 }
 
-#reflections {
+#reflections,
+#reading {
   margin: 16px;
 }
 
