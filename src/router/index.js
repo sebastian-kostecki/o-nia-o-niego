@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "@ionic/vue-router";
 
 import Dashboard from "../pages/Dashboard.vue";
+import Settings from "../pages/Settings.vue";
 
 const routes = [
   {
@@ -10,6 +11,10 @@ const routes = [
   {
     path: "/dashboard",
     component: Dashboard,
+  },
+  {
+    path: "/settings",
+    component: Settings,
   },
 ];
 
