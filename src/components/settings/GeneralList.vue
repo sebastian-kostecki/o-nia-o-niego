@@ -37,7 +37,7 @@
 import {IonList, IonItem, IonInput, IonLabel, IonListHeader} from "@ionic/vue";
 
 export default {
-  name: "SettingsApp",
+  name: "GeneralList",
   components: {
     IonList,
     IonItem,
@@ -133,11 +133,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-ion-item {
-  --color: var(--ion-color-primary-shade);
-  --border-color: var(--ion-color-primary);
-  --border-width: 2px;
-}
-</style>
