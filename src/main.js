@@ -37,12 +37,18 @@ import {
   faHouse,
   faGear,
   faCircleInfo,
+  faBookOpen,
+  faBookBible,
+  faHandsPraying
 } from "@fortawesome/free-solid-svg-icons";
 
 /* add icons to the library */
 library.add(faHouse);
 library.add(faGear);
 library.add(faCircleInfo);
+library.add(faBookOpen);
+library.add(faBookBible);
+library.add(faHandsPraying);
 
 const app = createApp(App)
   .use(IonicVue)
