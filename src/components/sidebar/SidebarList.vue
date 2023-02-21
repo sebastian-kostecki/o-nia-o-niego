@@ -1,5 +1,5 @@
 <template>
-  <ion-list lines="full">
+  <ion-list lines="full" :inset="true">
     <sidebar-item
       v-for="item in items"
       :key="item.name"

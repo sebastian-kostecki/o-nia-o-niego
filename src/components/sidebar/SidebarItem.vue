@@ -19,3 +19,12 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+ion-item {
+  --color: var(--ion-color-primary-shade);
+  --border-color: var(--ion-color-primary);
+  --border-width: 2px;
+  font-weight: bold;
+}
+</style>

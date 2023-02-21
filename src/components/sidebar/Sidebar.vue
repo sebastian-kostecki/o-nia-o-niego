@@ -1,7 +1,7 @@
 <template>
   <ion-header>
     <ion-toolbar color="primary">
-      <ion-title>Menu</ion-title>
+      <ion-title class="ion-margin">O Nią & O Niego</ion-title>
     </ion-toolbar>
   </ion-header>
   <ion-content>
