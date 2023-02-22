@@ -12,6 +12,7 @@ import {
   faBookOpen,
   faBookBible,
   faHandsPraying,
+  faCross
 } from "@fortawesome/free-solid-svg-icons";
 
 /* add icons to the library */
@@ -21,5 +22,6 @@ library.add(faCircleInfo);
 library.add(faBookOpen);
 library.add(faBookBible);
 library.add(faHandsPraying);
+library.add(faCross);
 
 export default FontAwesomeIcon
