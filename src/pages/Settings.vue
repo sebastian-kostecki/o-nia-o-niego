@@ -1,13 +1,16 @@
 <template>
   <base-layout title="Ustawienia">
-    <general-list></general-list>
-    <interface-list></interface-list>
+    <ion-content>
+      <general-list class="ion-margin-top"></general-list>
+      <interface-list></interface-list>
+    </ion-content>
   </base-layout>
 </template>
 
 <script>
 import GeneralList from "@/components/settings/GeneralList.vue";
 import InterfaceList from "@/components/settings/InterfaceList.vue";
+
 export default {
   name: "SettingsApp",
   components: {
@@ -22,6 +25,7 @@ ion-list-header {
   font-weight: bold;
   --color: var(--ion-color-primary-shade);
 }
+
 ion-item {
   --color: var(--ion-color-primary-shade);
 }
