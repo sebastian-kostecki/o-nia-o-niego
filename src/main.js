@@ -39,7 +39,7 @@ import {
   faCircleInfo,
   faBookOpen,
   faBookBible,
-  faHandsPraying
+  faHandsPraying,
 } from "@fortawesome/free-solid-svg-icons";
 
 /* add icons to the library */
