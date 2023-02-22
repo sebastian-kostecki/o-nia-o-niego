@@ -5,13 +5,16 @@
     </ion-toolbar>
   </ion-header>
   <ion-content>
-    <sidebar-list :items="items"></sidebar-list>
+    <sidebar-list>
+      <sidebar-item v-for="item in items" :key="item.name" :item="item"></sidebar-item>
+    </sidebar-list>
   </ion-content>
 </template>
 
 <script>
 import { IonHeader, IonTitle, IonContent, IonToolbar } from "@ionic/vue";
-import SidebarList from "./SidebarList.vue";
+import SidebarList from "@/components/sidebar/SidebarList.vue";
+import SidebarItem from "@/components/sidebar/SidebarItem.vue";
 
 export default {
   name: "SidebarContent",
@@ -21,6 +24,7 @@ export default {
     IonContent,
     IonToolbar,
     SidebarList,
+    SidebarItem
   },
   data() {
     return {
