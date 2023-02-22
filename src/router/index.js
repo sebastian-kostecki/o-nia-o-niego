@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "@ionic/vue-router";
 
 import Dashboard from "../pages/Dashboard.vue";
 import Settings from "../pages/Settings.vue";
+import AboutApplication from "@/pages/AboutApplication.vue";
 
 const routes = [
   {
@@ -16,6 +17,10 @@ const routes = [
     path: "/settings",
     component: Settings,
   },
+  {
+    path: "/info",
+    component: AboutApplication
+  }
 ];
 
 const router = createRouter({

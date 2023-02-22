@@ -41,7 +41,7 @@ export default {
         },
         {
           link: "/info",
-          name: "Informacje",
+          name: "O Aplikacji",
           icon: "fa-solid fa-circle-info",
         },
       ],
