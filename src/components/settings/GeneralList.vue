@@ -4,8 +4,16 @@
       <ion-label>Ogólne</ion-label>
     </ion-list-header>
     <ion-item class="ion-margin-horizontal">
-      <ion-label color="primary" position="stacked">Nazwa róży</ion-label>
-      <ion-input placeholder="Wpisz nazwę róży"></ion-input>
+      <ion-label color="primary" position="stacked">Patron róży</ion-label>
+      <ion-select interface="popover" placeholder="Wybierz patrona róży">
+        <ion-select-option
+            v-for="patron in patrons"
+            :key="patron.id"
+            :value="patron.id"
+        >{{ patron.text }}
+        </ion-select-option
+        >
+      </ion-select>
     </ion-item>
     <ion-item class="ion-margin-horizontal">
       <ion-label color="primary" position="stacked">Początek modlitwy</ion-label>
@@ -47,6 +55,20 @@ export default {
   },
   data() {
     return {
+      patrons: [
+        {
+          id: 1,
+          text: "Duch Święty"
+        },
+        {
+          id: 2,
+          text: "Święta Rodzina"
+        },
+        {
+          id: 1,
+          text: "Św. Józef"
+        }
+      ],
       mysteryOfRosary: [
         {
           text: "Zwiastowanie",
@@ -133,3 +155,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+ion-list {
+  margin-top: 64px;
+}
+</style>
