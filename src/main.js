@@ -1,6 +1,7 @@
 import { createApp } from "vue";
 import App from "./App.vue";
 import router from "./router";
+import store from "@/store/store";
 
 import { IonicVue } from "@ionic/vue";
 
@@ -25,34 +26,12 @@ import "./theme/variables.css";
 
 /* Base Components */
 import BaseLayout from "./components/BaseLayout.vue";
-
-/* Import the fontawesome core */
-import { library } from "@fortawesome/fontawesome-svg-core";
-
-/* Import font awesome icon component */
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-
-/* Import specific icons */
-import {
-  faHouse,
-  faGear,
-  faCircleInfo,
-  faBookOpen,
-  faBookBible,
-  faHandsPraying,
-} from "@fortawesome/free-solid-svg-icons";
-
-/* add icons to the library */
-library.add(faHouse);
-library.add(faGear);
-library.add(faCircleInfo);
-library.add(faBookOpen);
-library.add(faBookBible);
-library.add(faHandsPraying);
+import FontAwesomeIcon from "@/icons/fontAwesomeIcon";
 
 const app = createApp(App)
   .use(IonicVue)
   .use(router)
+  .use(store)
   .component("base-layout", BaseLayout)
   .component("font-awesome-icon", FontAwesomeIcon);
 
