@@ -1,5 +1,5 @@
 <template>
-  <ion-card>
+  <ion-card v-if="isShowed">
     <ion-card-header>
       <ion-card-title color="primary">
         <div id="wrapper">
@@ -11,9 +11,16 @@
           </ion-button>
         </div>
       </ion-card-title>
-      <ion-card-subtitle v-if="subtitle" class="ion-margin-start">{{ subtitle }}</ion-card-subtitle>
+      <ion-card-subtitle
+          v-if="subtitle"
+          class="ion-margin-start ion-margin-end ion-text-justify"
+          color="primary"
+      >{{ subtitle }}</ion-card-subtitle>
     </ion-card-header>
-    <ion-card-content v-if="expand">{{ content }}</ion-card-content>
+    <ion-card-content
+        v-if="expand"
+        class="ion-margin-start ion-margin-end ion-text-justify"
+    >{{ content }}</ion-card-content>
   </ion-card>
 </template>
 
@@ -29,7 +36,8 @@ export default {
     title: String,
     subtitle: String,
     content: String,
-    icon: String
+    icon: String,
+    isShowed: Boolean
   },
   data() {
     return {
@@ -43,9 +51,9 @@ export default {
 
 <style scoped>
 ion-card {
-  margin-left: 24px;
-  margin-right: 24px;
-  margin-bottom: 36px;
+  margin-left: 16px;
+  margin-right: 16px;
+  margin-bottom: 24px;
 }
 
 ion-card-title {
@@ -62,4 +70,7 @@ ion-button {
   right: 0;
 }
 
+ion-card-subtitle {
+  font-weight: bold;
+}
 </style>
