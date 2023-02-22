@@ -25,6 +25,8 @@
           title="Ewangelia na dziś"
           icon="fa-solid fa-bible"
           :content="gospel"
+          :subtitle="gospelTitle"
+          :is-showed-subtitle="false"
       ></dashboard-card>
     </ion-content>
   </base-layout>
@@ -33,7 +35,6 @@
 <script>
 import BaseLayout from "../components/BaseLayout.vue";
 import DashboardCard from "@/components/dashboard/DashboardCard.vue";
-import axios from "axios";
 
 export default {
   name: "dash-board",
@@ -43,42 +44,18 @@ export default {
   },
   data() {
     return {
-      gospel: "",
-      gospelTitle: "",
       mysteryOfRosary: "Tajemnica różańca",
       mysteryOfRosaryGroup: "Zwiastowanie NMP",
       timeToEnd: "Do końca pozostało 20 dni"
     };
   },
   computed: {
-    dateNow() {
-      const date = new Date();
-      const day = date.getDate().toString();
-      const month = date.toLocaleString("default", {month: "long"});
-      const year = date.getFullYear().toString();
-      const formattedDate = `${day} ${month} ${year}`;
-      return formattedDate;
+    gospel() {
+      return this.$store.getters.getGospel;
     },
-  },
-  ionViewDidEnter() {
-    this.getGospel();
-  },
-  methods: {
-    getGospel() {
-      axios
-          .get("https://publication.evangelizo.ws/PL/days/2023-02-21")
-          .then((response) => {
-            console.log(response);
-            this.gospel = response.data.data.readings[2].text;
-            this.gospelTitle = response.data.data.readings[2].title;
-          })
-          .catch(function () {
-            // handle error
-          })
-          .finally(function () {
-            // always executed
-          });
-    },
+    gospelTitle() {
+      return this.$store.getters.getGospelTitle;
+    }
   },
 };
 </script>

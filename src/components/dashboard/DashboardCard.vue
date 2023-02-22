@@ -12,7 +12,7 @@
         </div>
       </ion-card-title>
       <ion-card-subtitle
-          v-if="subtitle"
+          v-if="(isShowedSubtitle || expand) && subtitle"
           class="ion-margin-start ion-margin-end ion-text-justify"
           color="primary"
       >{{ subtitle }}</ion-card-subtitle>
@@ -37,7 +37,11 @@ export default {
     subtitle: String,
     content: String,
     icon: String,
-    isShowed: Boolean
+    isShowed: Boolean,
+    isShowedSubtitle: {
+      type: Boolean,
+      default: true
+    }
   },
   data() {
     return {
