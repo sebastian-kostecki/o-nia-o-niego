@@ -1,9 +1,10 @@
 <template>
   <base-layout title="O Nią & O Niego">
     <ion-content>
-      <img src="../assets/rosary.png" alt="rosary"/>
+
       <dashboard-card
           class="ion-margin-top"
+          :is-showed="true"
           :title="mysteryOfRosary"
           :subtitle="mysteryOfRosaryGroup"
           :content="timeToEnd"
@@ -11,6 +12,7 @@
       ></dashboard-card>
 
       <dashboard-card
+          :is-showed="true"
           title="Rozważanie"
           content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet in ex
           doloremque inventore, possimus quam eaque laboriosam aut nulla ipsa non
@@ -19,22 +21,16 @@
       ></dashboard-card>
 
       <dashboard-card
-        title="Ewangelia na dziś"
-        icon="fa-solid fa-bible"
-        :subtitle="gospelTitle"
-        :content="gospel"
+          :is-showed="true"
+          title="Ewangelia na dziś"
+          icon="fa-solid fa-bible"
+          :content="gospel"
       ></dashboard-card>
-
-      <ion-button class="ion-margin-top" size="large" expand="block" fill="outline" @click="getGospel"
-      >Pomodliłem się
-      </ion-button
-      >
     </ion-content>
   </base-layout>
 </template>
 
 <script>
-import {IonButton,} from "@ionic/vue";
 import BaseLayout from "../components/BaseLayout.vue";
 import DashboardCard from "@/components/dashboard/DashboardCard.vue";
 import axios from "axios";
@@ -42,16 +38,15 @@ import axios from "axios";
 export default {
   name: "dash-board",
   components: {
-    IonButton,
     BaseLayout,
-    DashboardCard
+    DashboardCard,
   },
   data() {
     return {
       gospel: "",
       gospelTitle: "",
-      mysteryOfRosary: "Zwiastowanie NMP",
-      mysteryOfRosaryGroup: "Tajemnice Radosne",
+      mysteryOfRosary: "Tajemnica różańca",
+      mysteryOfRosaryGroup: "Zwiastowanie NMP",
       timeToEnd: "Do końca pozostało 20 dni"
     };
   },
@@ -94,35 +89,7 @@ ion-content {
   --background: var(--ion-color-primary);
 }
 
-
-img {
-  opacity: 0.1;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-}
-
 ion-card {
   top: 50px;
-  margin-left: 16px;
-  margin-right: 16px;
-}
-
-/*#reflections,*/
-/*#reading {*/
-/*  margin: 16px;*/
-/*}*/
-
-ion-button {
-  --padding-top: 10px;
-  --padding-bottom: 10px;
-  margin: 16px;
-  color: white;
-  --border-color: white;
 }
 </style>

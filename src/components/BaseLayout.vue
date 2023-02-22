@@ -11,9 +11,7 @@
         <ion-title>{{ title }}</ion-title>
       </ion-toolbar>
     </ion-header>
-    <ion-content>
-      <slot></slot>
-    </ion-content>
+    <slot></slot>
   </ion-page>
 </template>
 
@@ -24,10 +22,10 @@ import {
   IonToolbar,
   IonButtons,
   IonMenuButton,
-  IonTitle,
-  IonContent,
+  IonTitle
 } from "@ionic/vue";
 import SidebarContent from "./sidebar/Sidebar.vue";
+
 export default {
   name: "BaseLayout",
   components: {
@@ -37,7 +35,6 @@ export default {
     IonButtons,
     IonMenuButton,
     IonTitle,
-    IonContent,
     SidebarContent,
   },
   props: {
@@ -47,12 +44,18 @@ export default {
 </script>
 
 <style scoped>
+/*ion-toolbar {*/
+/*  --background: transparent no-repeat fixed center;*/
+/*  --color: var(--ion-color-primary);*/
+/*}*/
+
 ion-toolbar {
   --background: var(--ion-color-primary);
-  --color: var(--ion-color-primary-contrast);
+  --color: white;
+  font-weight: bold;
+  position: absolute;
+  top: 0;
 }
 
-/*ion-content {*/
-/*  --background: var(--ion-color-primary);*/
-/*}*/
+
 </style>
