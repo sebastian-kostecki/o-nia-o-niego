@@ -39,4 +39,4 @@ router.isReady().then(() => {
   app.mount("#app");
 });
 
-store.dispatch('setGospel')
+store.dispatch('getLiturgyOfDay')
