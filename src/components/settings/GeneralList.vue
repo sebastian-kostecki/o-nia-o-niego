@@ -4,16 +4,15 @@
       <ion-label>Ogólne</ion-label>
     </ion-list-header>
     <ion-item class="ion-margin-horizontal">
-      <ion-label color="primary" position="stacked">Patron róży</ion-label>
-      <ion-select interface="popover" placeholder="Wybierz patrona róży">
-        <ion-select-option
-            v-for="patron in patrons"
-            :key="patron.id"
-            :value="patron.id"
-        >{{ patron.text }}
-        </ion-select-option
-        >
-      </ion-select>
+      <select-default
+          title="Patron róży"
+          placeholder="Wybierz patrona róży"
+          :items="patrons"
+          @set-value="setPatron"
+      ></select-default>
+    </ion-item>
+    <ion-item class="ion-margin-horizontal">
+
     </ion-item>
     <ion-item class="ion-margin-horizontal">
       <ion-label color="primary" position="stacked">Początek modlitwy</ion-label>
@@ -42,7 +41,9 @@
 </template>
 
 <script>
-import {IonList, IonItem, IonInput, IonLabel, IonListHeader} from "@ionic/vue";
+import {IonList, IonItem, IonInput, IonLabel, IonListHeader, IonSelect, IonSelectOption} from "@ionic/vue";
+import DatabaseService from "@/services/database";
+import SelectDefault from "@/components/form/SelectDefault.vue";
 
 export default {
   name: "GeneralList",
@@ -51,14 +52,19 @@ export default {
     IonItem,
     IonInput,
     IonLabel,
-    IonListHeader
+    IonListHeader,
+    IonSelect,
+    IonSelectOption,
+    SelectDefault
   },
   data() {
     return {
+      loading: false,
+      selectedPatron: null,
       patrons: [
         {
           id: 1,
-          text: "Duch Święty"
+          text: "Trójca Święta"
         },
         {
           id: 2,
@@ -66,7 +72,7 @@ export default {
         },
         {
           id: 1,
-          text: "Św. Józef"
+          text: "Duch Święty"
         }
       ],
       mysteryOfRosary: [
@@ -153,6 +159,19 @@ export default {
       ],
     };
   },
+  created() {
+    DatabaseService.initDatabase();
+  },
+  methods: {
+    async setPatron(patronId) {
+      await this.setLoading(true);
+      await DatabaseService.setData('patron', patronId);
+      await this.setLoading(false);
+    },
+    setLoading(value) {
+      this.loading = value;
+    }
+  }
 };
 </script>
 
