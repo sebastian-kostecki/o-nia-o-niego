@@ -44,6 +44,7 @@
 import {IonList, IonItem, IonInput, IonLabel, IonListHeader, IonSelect, IonSelectOption} from "@ionic/vue";
 import DatabaseService from "@/services/database";
 import SelectDefault from "@/components/form/SelectDefault.vue";
+import SettingsVariablesMixins from "@/mixins/settingsVariablesMixins";
 
 export default {
   name: "GeneralList",
@@ -57,24 +58,10 @@ export default {
     IonSelectOption,
     SelectDefault
   },
+  mixins: [SettingsVariablesMixins],
   data() {
     return {
       loading: false,
-      selectedPatron: null,
-      patrons: [
-        {
-          id: 1,
-          text: "Trójca Święta"
-        },
-        {
-          id: 2,
-          text: "Święta Rodzina"
-        },
-        {
-          id: 1,
-          text: "Duch Święty"
-        }
-      ],
       mysteryOfRosary: [
         {
           text: "Zwiastowanie",
@@ -177,6 +164,6 @@ export default {
 
 <style scoped>
 ion-list {
-  margin-top: 64px;
+  margin-top: 56px;
 }
 </style>
