@@ -12,11 +12,10 @@
       ></select-default>
     </ion-item>
     <ion-item class="ion-margin-horizontal">
-
-    </ion-item>
-    <ion-item class="ion-margin-horizontal">
-      <ion-label color="primary" position="stacked">Początek modlitwy</ion-label>
-      <ion-input type="date"></ion-input>
+      <date-input
+          title="Początek modlitwy"
+          @set-value="setBeginning"
+      ></date-input>
     </ion-item>
     <ion-item class="ion-margin-horizontal">
       <ion-label color="primary" position="stacked">Pierwsza tajemnica</ion-label>
@@ -41,9 +40,10 @@
 </template>
 
 <script>
-import {IonList, IonItem, IonInput, IonLabel, IonListHeader, IonSelect, IonSelectOption} from "@ionic/vue";
+import {IonList, IonItem, IonLabel, IonListHeader, IonSelect, IonSelectOption} from "@ionic/vue";
 import DatabaseService from "@/services/database";
 import SelectDefault from "@/components/form/SelectDefault.vue";
+import DateInput from "@/components/form/DateInput.vue";
 import SettingsVariablesMixins from "@/mixins/settingsVariablesMixins";
 
 export default {
@@ -51,17 +51,18 @@ export default {
   components: {
     IonList,
     IonItem,
-    IonInput,
     IonLabel,
     IonListHeader,
     IonSelect,
     IonSelectOption,
-    SelectDefault
+    SelectDefault,
+    DateInput
   },
   mixins: [SettingsVariablesMixins],
   data() {
     return {
       loading: false,
+      selectedDate: null,
       mysteryOfRosary: [
         {
           text: "Zwiastowanie",
@@ -151,9 +152,10 @@ export default {
   },
   methods: {
     async setPatron(patronId) {
-      await this.setLoading(true);
       await DatabaseService.setData('patron', patronId);
-      await this.setLoading(false);
+    },
+    async setBeginning(date) {
+      await DatabaseService.setData('beginningDate', date);
     },
     setLoading(value) {
       this.loading = value;
