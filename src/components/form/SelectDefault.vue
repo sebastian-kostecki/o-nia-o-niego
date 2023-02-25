@@ -7,10 +7,10 @@
       @ionChange="setValue"
   >
     <ion-select-option
-        v-for="(item, index) in items"
-        :key="index"
+        v-for="item in items"
+        :key="item.id"
         :value="item"
-    >{{ item }}
+    >{{ item.text }}
     </ion-select-option>
   </ion-select>
 </template>
