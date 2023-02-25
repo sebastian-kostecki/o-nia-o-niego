@@ -2,6 +2,7 @@ import { createApp } from "vue";
 import App from "./App.vue";
 import router from "./router";
 import store from "@/store/store";
+import { IonicStorage } from '@ionic/storage';
 
 import { IonicVue } from "@ionic/vue";
 
@@ -32,6 +33,7 @@ const app = createApp(App)
   .use(IonicVue)
   .use(router)
   .use(store)
+  .use(IonicStorage)
   .component("base-layout", BaseLayout)
   .component("font-awesome-icon", FontAwesomeIcon);
 
