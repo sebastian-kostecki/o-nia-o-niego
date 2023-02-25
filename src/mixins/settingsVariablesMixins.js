@@ -17,86 +17,96 @@ const settingsVariablesMixins = {
       ],
       mysteryOfRosary: [
         {
-          text: "Zwiastowanie",
           id: 1,
+          text: "Zwiastowanie",
         },
         {
-          text: "Nawiedzenie św. Elżbiety",
           id: 2,
+          text: "Nawiedzenie św. Elżbiety",
         },
         {
-          text: "Narodzenie",
           id: 3,
+          text: "Narodzenie",
         },
         {
-          text: "Ofiarowanie",
           id: 4,
+          text: "Ofiarowanie",
         },
         {
-          text: "Znalezienie w świątyni",
           id: 5,
+          text: "Znalezienie w świątyni",
         },
         {
-          text: "Chrzest w Jordanie",
           id: 6,
+          text: "Chrzest w Jordanie",
         },
         {
-          text: "Objawienie na weselu w Kanie",
           id: 7,
+          text: "Objawienie na weselu w Kanie",
         },
         {
-          text: "Głoszenie Królestwa Bożego",
           id: 8,
+          text: "Głoszenie Królestwa Bożego",
         },
         {
-          text: "Przemienienie Pańskie",
           id: 9,
+          text: "Przemienienie Pańskie",
         },
         {
-          text: "Ustanowienie Eucharystii",
           id: 10,
+          text: "Ustanowienie Eucharystii",
         },
         {
-          text: "Modlitwa w Ogrójcu",
           id: 11,
+          text: "Modlitwa w Ogrójcu",
         },
         {
-          text: "Biczowanie",
           id: 12,
+          text: "Biczowanie",
         },
         {
-          text: "Cierniem Ukoronowanie",
           id: 13,
+          text: "Cierniem Ukoronowanie",
         },
         {
-          text: "Droga Krzyżowa",
           id: 14,
+          text: "Droga Krzyżowa",
         },
         {
-          text: "Śmierć na Krzyżu",
           id: 15,
+          text: "Śmierć na Krzyżu",
         },
         {
-          text: "Zmartwychwstanie",
           id: 16,
+          text: "Zmartwychwstanie",
         },
         {
-          text: "Wniebowstąpienie",
           id: 17,
+          text: "Wniebowstąpienie",
         },
         {
-          text: "Zesłanie Ducha Świętego",
           id: 18,
+          text: "Zesłanie Ducha Świętego",
         },
         {
-          text: "Wniebowzięcie NMP",
           id: 19,
+          text: "Wniebowzięcie NMP",
         },
         {
-          text: "Ukoronowanie NMP",
           id: 20,
+          text: "Ukoronowanie NMP",
         },
       ],
+      gender: [
+        {
+          id: 1,
+          text: "Kobieta"
+        },
+        {
+          id: 2,
+          text: "Mężczyzna"
+        }
+      ]
     }
   }
 }

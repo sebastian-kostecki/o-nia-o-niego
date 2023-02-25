@@ -19,24 +19,25 @@
     </ion-item>
     <ion-item class="ion-margin-horizontal">
       <select-default
-        title="Pierwsza tajemnica"
-        placeholder="Wybierz tajemnice różańca"
-        :items="mysteryOfRosary"
-        @set-value="setFirstMystery"
+          title="Pierwsza tajemnica"
+          placeholder="Wybierz tajemnice różańca"
+          :items="mysteryOfRosary"
+          @set-value="setFirstMystery"
       ></select-default>
     </ion-item>
     <ion-item class="ion-margin-horizontal">
-      <ion-label color="primary" position="stacked">Płeć</ion-label>
-      <ion-select interface="popover" placeholder="Wybierz płeć">
-        <ion-select-option value="women">Kobieta</ion-select-option>
-        <ion-select-option value="men">Mężczyzna</ion-select-option>
-      </ion-select>
+      <select-default
+          title="Płeć"
+          placeholder="Wybierz płeć"
+          :items="gender"
+          @set-value="setGender"
+      ></select-default>
     </ion-item>
   </ion-list>
 </template>
 
 <script>
-import {IonList, IonItem, IonLabel, IonListHeader, IonSelect, IonSelectOption} from "@ionic/vue";
+import { IonList, IonItem, IonLabel, IonListHeader } from "@ionic/vue";
 import DatabaseService from "@/services/database";
 import SelectDefault from "@/components/form/SelectDefault.vue";
 import DateInput from "@/components/form/DateInput.vue";
@@ -49,8 +50,6 @@ export default {
     IonItem,
     IonLabel,
     IonListHeader,
-    IonSelect,
-    IonSelectOption,
     SelectDefault,
     DateInput
   },
@@ -72,6 +71,9 @@ export default {
     },
     async setFirstMystery(mystery) {
       await DatabaseService.setData('first_mystery', mystery);
+    },
+    async setGender(gender) {
+      await DatabaseService.setData('gender', gender.text);
     },
     setLoading(value) {
       this.loading = value;
