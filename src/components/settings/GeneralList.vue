@@ -8,13 +8,13 @@
           title="Patron róży"
           placeholder="Wybierz patrona róży"
           :items="patrons"
-          @set-value="setPatron"
+          v-model:item="patron"
       ></select-default>
     </ion-item>
     <ion-item class="ion-margin-horizontal">
       <date-input
           title="Początek modlitwy"
-          @set-value="setBeginning"
+          v-model:item="beginningDate"
       ></date-input>
     </ion-item>
     <ion-item class="ion-margin-horizontal">
@@ -22,15 +22,15 @@
           title="Pierwsza tajemnica"
           placeholder="Wybierz tajemnice różańca"
           :items="mysteryOfRosary"
-          @set-value="setFirstMystery"
+          v-model:item="firstMystery"
       ></select-default>
     </ion-item>
     <ion-item class="ion-margin-horizontal">
       <select-default
           title="Płeć"
           placeholder="Wybierz płeć"
-          :items="gender"
-          @set-value="setGender"
+          :items="genders"
+          v-model:item="gender"
       ></select-default>
     </ion-item>
   </ion-list>
@@ -57,27 +57,67 @@ export default {
   data() {
     return {
       loading: false,
+      patron: null,
+      beginningDate: "",
+      firstMystery: null,
+      gender: null
     };
   },
-  created() {
+  created () {
     DatabaseService.initDatabase();
   },
+  mounted() {
+    this.getSettings();
+  },
   methods: {
-    async setPatron(patronId) {
-      await DatabaseService.setData('patron', patronId);
+    async getSettings() {
+      await this.setLoading(true);
+      await this.getPatron();
+      await this.getBeginning();
+      await this.getFirstMystery();
+      await this.getGender();
+    },
+    async setPatron(patron) {
+      await DatabaseService.setData('patron', patron);
+    },
+    async getPatron() {
+      this.patron = await DatabaseService.getData('patron');
     },
     async setBeginning(date) {
       await DatabaseService.setData('beginning_date', date);
     },
+    async getBeginning() {
+      this.beginningDate = await DatabaseService.getData('beginning_date');
+    },
     async setFirstMystery(mystery) {
       await DatabaseService.setData('first_mystery', mystery);
     },
-    async setGender(gender) {
-      await DatabaseService.setData('gender', gender.text);
+    async getFirstMystery() {
+      this.firstMystery = await DatabaseService.getData('first_mystery');
     },
-    setLoading(value) {
+    async setGender(gender) {
+      await DatabaseService.setData('gender', gender);
+    },
+    async getGender() {
+      this.gender = await DatabaseService.getData('gender');
+    },
+    async setLoading(value) {
       this.loading = value;
     }
+  },
+  watch: {
+    patron(value) {
+      this.setPatron(value);
+    },
+    beginningDate(value) {
+      this.setBeginning(value);
+    },
+    firstMystery(value) {
+      this.setFirstMystery(value);
+    },
+    gender(value) {
+      this.setGender(value);
+    },
   }
 };
 </script>

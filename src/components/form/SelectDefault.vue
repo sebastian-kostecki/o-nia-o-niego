@@ -4,19 +4,19 @@
       interface="popover"
       :placeholder="placeholder"
       v-model="selectedValue"
-      @ionChange="setValue"
   >
     <ion-select-option
-        v-for="item in items"
-        :key="item.id"
+        v-for="(item, index) in items"
+        :key="index"
         :value="item"
-    >{{ item.text }}
+    >{{ item }}
     </ion-select-option>
   </ion-select>
 </template>
 
 <script>
-import { IonLabel, IonSelect, IonSelectOption } from "@ionic/vue";
+import {IonLabel, IonSelect, IonSelectOption} from "@ionic/vue";
+
 export default {
   name: "SelectDefault",
   components: {
@@ -24,21 +24,18 @@ export default {
     IonSelect,
     IonSelectOption
   },
-  props: {
-    title: String,
-    placeholder: String,
-    items: Array
+  props: ['title', 'placeholder', 'items', 'item'],
+  emits: ['update:item'],
+  computed: {
+    selectedValue: {
+      get() {
+        return this.item;
+      },
+      set(newValue) {
+        this.$emit('update:item', newValue)
+      },
+    },
   },
-  data() {
-    return {
-      selectedValue: null
-    }
-  },
-  methods: {
-    setValue() {
-      this.$emit('set-value', this.selectedValue)
-    }
-  }
 }
 </script>
 

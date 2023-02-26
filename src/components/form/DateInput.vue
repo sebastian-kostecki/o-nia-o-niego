@@ -3,7 +3,6 @@
   <ion-input
       type="date"
       v-model="selectedValue"
-      @ionChange="setValue"
   ></ion-input>
 </template>
 
@@ -15,18 +14,17 @@ export default {
     IonInput,
     IonLabel
   },
-  props: {
-    title: String,
+  props: ['title', 'item'],
+  emits: ['update:item'],
+  computed: {
+    selectedValue: {
+      get() {
+        return this.item;
+      },
+      set(newValue) {
+        this.$emit('update:item', newValue)
+      },
+    },
   },
-  data() {
-    return {
-      selectedValue: null
-    }
-  },
-  methods: {
-    setValue() {
-      this.$emit('set-value', this.selectedValue)
-    }
-  }
 }
 </script>

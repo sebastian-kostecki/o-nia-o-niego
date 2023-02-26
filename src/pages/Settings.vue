@@ -1,10 +1,12 @@
 <template>
-  <base-layout title="Ustawienia">
-    <ion-content>
-      <general-list class="ion-margin-top"></general-list>
-      <interface-list></interface-list>
-    </ion-content>
-  </base-layout>
+  <div>
+    <base-layout title="Ustawienia">
+      <ion-content>
+        <general-list class="ion-margin-top"></general-list>
+        <interface-list></interface-list>
+      </ion-content>
+    </base-layout>
+  </div>
 </template>
 
 <script>
