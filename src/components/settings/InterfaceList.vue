@@ -5,6 +5,12 @@
     </ion-list-header>
     <ion-item class="ion-margin-horizontal">
       <toggle-default
+          title="Modlitwa do patrona"
+          v-model:item="isPatronPrayerView"
+      ></toggle-default>
+    </ion-item>
+    <ion-item class="ion-margin-horizontal">
+      <toggle-default
           title="Rozważania"
           v-model:item="isReflectionsView"
       ></toggle-default>
@@ -35,7 +41,8 @@ export default {
   data() {
     return {
       isReflectionsView: false,
-      isGospelView: false
+      isGospelView: false,
+      isPatronPrayerView: false
     }
   },
   created () {
@@ -48,6 +55,7 @@ export default {
     getInterfaceSettings() {
       this.getIsReflectionsView();
       this.getIsGospelView();
+      this.getIsPatronPrayerView();
     },
     async getIsReflectionsView() {
       this.isReflectionsView = await DatabaseService.getData('is_reflections_view');
@@ -55,11 +63,17 @@ export default {
     async getIsGospelView() {
       this.isGospelView = await DatabaseService.getData('is_gospel_view');
     },
+    async getIsPatronPrayerView() {
+      this.isPatronPrayerView = await DatabaseService.getData('is_patron_prayer_view');
+    },
     async setIsReflectionsView(value) {
       await DatabaseService.setData('is_reflections_view', value);
     },
     async setIsGospelView(value) {
       await DatabaseService.setData('is_gospel_view', value);
+    },
+    async setIsPatronPrayerView(value) {
+      await DatabaseService.setData('is_patron_prayer_view', value);
     },
   },
   watch: {
@@ -68,6 +82,9 @@ export default {
     },
     isReflectionsView(value) {
       this.setIsReflectionsView(value);
+    },
+    isPatronPrayerView(value) {
+      this.setIsPatronPrayerView(value);
     }
   }
 }
