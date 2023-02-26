@@ -12,13 +12,14 @@
       <dashboard-card
           is-showed="true"
           title="Modlitwa do patrona"
+          subtitle="Święta Rodzina"
           content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet in ex
           doloremque inventore, possimus quam eaque laboriosam aut nulla ipsa non
           nisi nesciunt doloribus, sapiente est facere porro expedita dolor?"
           icon="fa-solid fa-hands-praying"
       ></dashboard-card>
       <dashboard-card
-          :is-showed="true"
+          :is-showed="isReflectionsView"
           title="Rozważanie"
           content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet in ex
           doloremque inventore, possimus quam eaque laboriosam aut nulla ipsa non
@@ -26,7 +27,7 @@
           icon="fa-solid fa-book-open"
       ></dashboard-card>
       <dashboard-card
-          :is-showed="true"
+          :is-showed="isGospelView"
           title="Ewangelia na dziś"
           icon="fa-solid fa-bible"
           :content="gospel"
@@ -41,6 +42,7 @@
 import BaseLayout from "../components/BaseLayout.vue";
 import DashboardCard from "@/components/dashboard/DashboardCard.vue";
 import DashboardPanel from "@/components/dashboard/DashboardPanel.vue";
+import DatabaseService from "@/services/database";
 
 export default {
   name: "dash-board",
@@ -55,7 +57,9 @@ export default {
         name: "Zwiastowanie NMP",
         text: "Oto ja służebnica Pańska, niech mi się stanie według słowa twego"
       },
-      timeToEnd: "Do końca pozostało 20 dni"
+      timeToEnd: "Do końca pozostało 20 dni",
+      isGospelView: true,
+      isReflectionsView: true,
     };
   },
   computed: {
@@ -70,8 +74,26 @@ export default {
     },
     liturgicTitle() {
       return this.$store.getters.getLiturgicTitle;
-    }
+    },
   },
+  created() {
+    DatabaseService.initDatabase();
+  },
+  mounted() {
+    this.getViews();
+  },
+  methods: {
+    async getViews() {
+      await this.getIsGospelView();
+      await this.getIsReflectionsView();
+    },
+    async getIsGospelView() {
+      this.isGospelView = await DatabaseService.getData('is_gospel_view');
+    },
+    async getIsReflectionsView() {
+      this.isReflectionsView = await DatabaseService.getData('is_reflections_view');
+    },
+  }
 };
 </script>
 
