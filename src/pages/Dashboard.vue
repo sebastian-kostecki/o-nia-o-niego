@@ -3,14 +3,14 @@
     <ion-content>
       <dashboard-panel></dashboard-panel>
       <dashboard-card
-          :is-showed="true"
+          is-showed="true"
           title="Tajemnica różańca"
           :subtitle="mysteryOfRosary.name"
           :content="mysteryOfRosary.text"
           icon="fa-solid fa-cross"
       ></dashboard-card>
       <dashboard-card
-          is-showed="true"
+          :is-showed="isPatronPrayerView"
           title="Modlitwa do patrona"
           subtitle="Święta Rodzina"
           content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet in ex
@@ -60,6 +60,7 @@ export default {
       timeToEnd: "Do końca pozostało 20 dni",
       isGospelView: true,
       isReflectionsView: true,
+      isPatronPrayerView: true
     };
   },
   computed: {
@@ -86,12 +87,16 @@ export default {
     async getViews() {
       await this.getIsGospelView();
       await this.getIsReflectionsView();
+      await this.getIsPatronPrayerView();
     },
     async getIsGospelView() {
       this.isGospelView = await DatabaseService.getData('is_gospel_view');
     },
     async getIsReflectionsView() {
       this.isReflectionsView = await DatabaseService.getData('is_reflections_view');
+    },
+    async getIsPatronPrayerView() {
+      this.isPatronPrayerView = await DatabaseService.getData('is_patron_prayer_view');
     },
   }
 };
