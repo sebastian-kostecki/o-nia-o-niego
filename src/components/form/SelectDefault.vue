@@ -8,8 +8,8 @@
     <ion-select-option
         v-for="(item, index) in items"
         :key="index"
-        :value="item"
-    >{{ item }}
+        :value="item.id"
+    >{{ item.text }}
     </ion-select-option>
   </ion-select>
 </template>
@@ -24,7 +24,15 @@ export default {
     IonSelect,
     IonSelectOption
   },
-  props: ['title', 'placeholder', 'items', 'item'],
+  props: {
+    title: String,
+    placeholder: String,
+    items: Array,
+    item: {
+      type: Object,
+      default: () => ({})
+    }
+  },
   emits: ['update:item'],
   computed: {
     selectedValue: {
