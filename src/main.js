@@ -1,7 +1,6 @@
 import { createApp } from "vue";
 import App from "./App.vue";
 import router from "./router";
-import store from "@/store/store";
 import { IonicStorage } from '@ionic/storage';
 
 import { IonicVue } from "@ionic/vue";
@@ -32,7 +31,6 @@ import FontAwesomeIcon from "@/icons/fontAwesomeIcon";
 const app = createApp(App)
   .use(IonicVue)
   .use(router)
-  .use(store)
   .use(IonicStorage)
   .component("base-layout", BaseLayout)
   .component("font-awesome-icon", FontAwesomeIcon);
@@ -40,5 +38,3 @@ const app = createApp(App)
 router.isReady().then(() => {
   app.mount("#app");
 });
-
-store.dispatch('getLiturgyOfDay')
