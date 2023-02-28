@@ -47,7 +47,4 @@ ion-list {
 h1, h2 {
   font-weight: bold;
 }
-a {
-  text-decoration: none;
-}
 </style>

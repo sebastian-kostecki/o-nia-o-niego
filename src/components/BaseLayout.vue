@@ -56,6 +56,9 @@ ion-toolbar {
   position: absolute;
   top: 0;
 }
-
+ion-title,
+ion-menu-button {
+  color: var(--ion-card-background, var(--ion-item-background, var(--ion-background-color, #fff)));
+}
 
 </style>
