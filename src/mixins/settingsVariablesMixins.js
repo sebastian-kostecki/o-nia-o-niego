@@ -34,6 +34,7 @@ const settingsVariablesMixins = {
         {
           id: 1,
           text: "Zwiastowanie",
+          bible: "Oto poczniesz i porodzisz Syna, któremu nadasz imię Jezus” (Łk 1,31)",
           reflection: "„Oto poczniesz i porodzisz Syna, któremu nadasz imię Jezus” (Łk 1,31). Druga\n" +
             "Osoba Trójcy Świętej, z dawna obiecywany i przepowiadany Mesjasz, w łonie\n" +
             "Maryi Dziewicy staje się Człowiekiem. Największe wydarzenie w dziejach\n" +
@@ -48,6 +49,8 @@ const settingsVariablesMixins = {
         {
           id: 2,
           text: "Nawiedzenie św. Elżbiety",
+          bible: "Błogosławiony jest owoc Twojego łona. A skądże mi to, że Matka mojego Pana\n" +
+            "przychodzi do mnie” (Łk 1,42-43)",
           reflection: "„Błogosławiony jest owoc Twojego łona. A skądże mi to, że Matka mojego Pana\n" +
             "przychodzi do mnie” (Łk 1,42-43). Poczęty z Ducha Świętego, już w łonie swej\n" +
             "Matki rozpoczyna Jezus zbawcze dzieło, wszak po to zstąpił na ziemię.\n" +
@@ -64,6 +67,7 @@ const settingsVariablesMixins = {
         {
           id: 3,
           text: "Narodzenie Pana Jezusa",
+          bible: "Dziś w mieście Dawida narodził się wam Zbawiciel, którym jest Mesjasz, Pan” (Łk 2,11)",
           reflection: "„Dziś w mieście Dawida narodził się wam Zbawiciel, którym jest Mesjasz, Pan” (Łk\n" +
             "2,11). Wszystkie przepowiednie i obietnice Starego Testamentu przyjmują kształt\n" +
             "widzialny: „Słowo Ciałem się stało i zamieszkało wśród nas” (J 1,14). Obietnice się\n" +
@@ -77,6 +81,7 @@ const settingsVariablesMixins = {
         {
           id: 4,
           text: "Ofiarowanie Pana Jezusa w światyni",
+          bible: "Oto Ten przeznaczony jest na upadek i na powstanie wielu\" (Łk 2,34)",
           reflection: "„Oto Ten przeznaczony jest na upadek i na powstanie wielu\" (Łk 2,34). Tajemnica\n" +
             "straszna! Jezus ofiaruje siebie dla zbawienia wszystkich: dobrych, złych,\n" +
             "wierzących i niewierzących. Nie wszyscy jednak przyjmą zbawienie Jezusa, wielu\n" +
@@ -90,6 +95,7 @@ const settingsVariablesMixins = {
         {
           id: 5,
           text: "Znalezienie Pana Jezusa w świątyni",
+          bible: "Dopiero po trzech dniach odnaleźli Go w świątyni” (Łk 2,46)",
           reflection: "„Dopiero po trzech dniach odnaleźli Go w świątyni” (Łk 2,46). Największą\n" +
             "tragedią człowieka jest utrata Jezusa – na ziemi przez grzech, zwłaszcza niewiary,\n" +
             "a po śmierci przez wieczne potępienie. Niewysłowiona zaś radość płynie z\n" +
@@ -105,6 +111,9 @@ const settingsVariablesMixins = {
         {
           id: 6,
           text: "Chrzest w Jordanie",
+          bible: "A gdy Jezus został ochrzczony, natychmiast wyszedł z wody. A oto otworzyły Mu\n" +
+            "się niebiosa i ujrzał Ducha Świętego zstępującego jak gołębicę i przychodzącego\n" +
+            "na Niego” (Mt 3,16)",
           reflection: "„A gdy Jezus został ochrzczony, natychmiast wyszedł z wody. A oto otworzyły Mu\n" +
             "się niebiosa i ujrzał Ducha Świętego zstępującego jak gołębicę i przychodzącego\n" +
             "na Niego” (Mt 3,16). Baranek Boży – Druga Osoba Trójcy Świętej – objawia się i\n" +
@@ -121,6 +130,7 @@ const settingsVariablesMixins = {
         {
           id: 7,
           text: "Cud w Kanie Galilejskiej",
+          bible: "«Zróbcie wszystko, cokolwiek wam powie»” (J 2, 5)",
           reflection: "„Trzeciego dnia odbywało się wesele w Kanie Galilejskiej i była tam Matka Jezusa.\n" +
             "Zaproszono na to wesele także Jezusa i Jego uczniów. A kiedy zabrakło wina,\n" +
             "Matka Jezusa mówi do Niego: «Nie mają już wina». Jezus Jej odpowiedział: «Czyż\n" +
@@ -141,6 +151,9 @@ const settingsVariablesMixins = {
         {
           id: 8,
           text: "Głoszenie Królestwa Bożego",
+          bible: "«Duch Pański spoczywa na Mnie, ponieważ Mnie namaścił i posłał Mnie, abym\n" +
+            "ubogim niósł dobrą nowinę, więźniom głosił wolność, a niewidomym przejrzenie;\n" +
+            "abym uciśnionych odsyłał wolnymi, abym obwoływał rok łaski od Pana» (Łk 4, 18-19)",
           reflection: "„«Duch Pański spoczywa na Mnie, ponieważ Mnie namaścił i posłał Mnie, abym\n" +
             "ubogim niósł dobrą nowinę, więźniom głosił wolność, a niewidomym przejrzenie;\n" +
             "abym uciśnionych odsyłał wolnymi, abym obwoływał rok łaski od Pana». ... oczy\n" +
@@ -158,6 +171,7 @@ const settingsVariablesMixins = {
         {
           id: 9,
           text: "Przemienienie na górze Tabor",
+          bible: "«To jest mój Syn umiłowany, w którym mam upodobanie, Jego słuchajcie!» (Mt 17, 6)",
           reflection: "„Po sześciu dniach Jezus wziął z sobą Piotra, Jakuba i brata jego Jana i\n" +
             "zaprowadził ich na górę wysoką, osobno. Tam przemienił się wobec nich: twarz\n" +
             "Jego zajaśniała jak słońce, odzienie zaś stało się białe jak światło” (Mt 17,1-2). Ci\n" +
@@ -174,6 +188,8 @@ const settingsVariablesMixins = {
         {
           id: 10,
           text: "Ustanowienie Eucharystii",
+          bible: "Wtedy rzekł do nich: «Gorąco pragnąłem spożyć Paschę z wami, zanim będę\n" +
+            "cierpiał»” (Łk 22,15)",
           reflection: "„Wtedy rzekł do nich: «Gorąco pragnąłem spożyć Paschę z wami, zanim będę\n" +
             "cierpiał»” (Łk 22,15). Syn Boży, jedyny i prawdziwy Arcykapłan dóbr przyszłych,\n" +
             "zastawia dla nas stół swego Ciała i Krwi Przenajświętszej, sakrament swojej\n" +
@@ -190,6 +206,8 @@ const settingsVariablesMixins = {
         {
           id: 11,
           text: "Modlitwa w Ogrójcu",
+          bible: "Pogrążony w udręce jeszcze usilniej się modlił, a Jego pot był jak gęste krople\n" +
+            "krwi, sączące się na ziemię” (Łk 22,44)",
           reflection: "„Pogrążony w udręce jeszcze usilniej się modlił, a Jego pot był jak gęste krople\n" +
             "krwi, sączące się na ziemię” (Łk 22,44). Mógł nas odkupić aktem miłości, jednym\n" +
             "słowem. Ale Jego miłość chciała zadośćuczynić za grzechy świata nie tylko\n" +
@@ -203,6 +221,7 @@ const settingsVariablesMixins = {
         {
           id: 12,
           text: "Biczowanie",
+          bible: "Uwolnił im Barabasza, a Jezusa kazał ubiczować i wydał na ukrzyżowanie” (Mt 27,26)",
           reflection: "„Uwolnił im Barabasza, a Jezusa kazał ubiczować i wydał na ukrzyżowanie” (Mt\n" +
             "27,26). Uwolnił złoczyńcę i zbrodniarza, a Jezusa poddał kaźni biczowania. Taka\n" +
             "jest zamiana: zbrodniarz będzie żył za cenę śmierci Niewinnego: „Spadła Nań\n" +
@@ -215,6 +234,8 @@ const settingsVariablesMixins = {
         {
           id: 13,
           text: "Cierniem ukoronowanie",
+          bible: "Uplótłszy wieniec z ciernia, włożyli Mu na głowę ... pluli na Niego i bili Go po\n" +
+            "głowie” (Mt 27,29-30)",
           reflection: "„Uplótłszy wieniec z ciernia, włożyli Mu na głowę ... pluli na Niego i bili Go po\n" +
             "głowie” (Mt 27,29-30). Pan chwały, Król wszechświata, opluty, zbity, wyśmiany i\n" +
             "poniżony: „Uniżył samego siebie, stawszy się posłusznym aż do śmierci” (Flp 2,8).\n" +
@@ -227,6 +248,8 @@ const settingsVariablesMixins = {
         {
           id: 14,
           text: "Droga Krzyżowa",
+          bible: "Jezus sam dźwigając krzyż, wyszedł na miejsce zwane Miejscem Czaszki, które\n" +
+            "po hebrajsku nazywa się Golgota” (por. J 19,17)",
           reflection: "„Jezus sam dźwigając krzyż, wyszedł na miejsce zwane Miejscem Czaszki, które\n" +
             "po hebrajsku nazywa się Golgota” (por. J 19,17). Stroma, kamienista i ciężka była\n" +
             "droga na Kalwarię, ta udeptana nogami ludzkimi i ta wyciśnięta w Sercu\n" +
@@ -241,6 +264,8 @@ const settingsVariablesMixins = {
         {
           id: 15,
           text: "Śmierć na Krzyżu",
+          bible: "Jezus zawołał donośnym głosem: «Ojcze, w Twoje ręce powierzam ducha\n" +
+            "mojego». Po tych słowach wyzionął ducha” (Łk 23,46)",
           reflection: "„Jezus zawołał donośnym głosem: «Ojcze, w Twoje ręce powierzam ducha\n" +
             "mojego». Po tych słowach wyzionął ducha” (Łk 23,46). Od godziny szóstej aż do\n" +
             "godziny dziewiątej konał na krzyżu Bóg-Człowiek. Pełne trzy godziny. Konał,\n" +
@@ -255,6 +280,7 @@ const settingsVariablesMixins = {
         {
           id: 16,
           text: "Zmartwychwstanie",
+          bible: "Nie ma Go tu; zmartwychwstał\" (Łk 24,6)",
           reflection: "„Nie ma Go tu; zmartwychwstał\" (Łk 24,6). Śmierć stała się bramą do nowego\n" +
             "życia, do chwały nieśmiertelnej. Jezus umarł i zmartwychwstał dla zbawienia\n" +
             "całego ludu Bożego. Swoim zmartwychwstaniem zwyciężył na zawsze śmierć,\n" +
@@ -269,6 +295,8 @@ const settingsVariablesMixins = {
         {
           id: 17,
           text: "Wniebowstąpienie",
+          bible: "Wstępuję do Ojca mego i Ojca waszego oraz do Boga mego i Boga waszego” (J\n" +
+            "20,17)",
           reflection: "„Wstępuję do Ojca mego i Ojca waszego oraz do Boga mego i Boga waszego” (J\n" +
             "20,17). Odkupienie rodzaju ludzkiego przypieczętowane zostało śmiercią i\n" +
             "zmartwychwstaniem raz na zawsze i w sposób nieodwołalny. Jezus wstępuje do\n" +
@@ -283,6 +311,7 @@ const settingsVariablesMixins = {
         {
           id: 18,
           text: "Zesłanie Ducha Świętego",
+          bible: "Przyjdzie Pocieszyciel, którego Ja wam poślę od Ojca, Duch Prawdy” (J 15,26)",
           reflection: "„Przyjdzie Pocieszyciel, którego Ja wam poślę od Ojca, Duch Prawdy” (J 15,26).\n" +
             "Duch Święty jest Duchem Jezusowym, jest Miłością Ojca i Syna. Dzieło\n" +
             "odkupienia, dokonane przez Jezusa na świecie i złożone w sercu ludu Bożego, w\n" +
@@ -298,6 +327,8 @@ const settingsVariablesMixins = {
         {
           id: 19,
           text: "Wniebowzięcie Matki Bożej",
+          bible: "Ojcze, chcę, aby także ci, których Mi dałeś, byli ze Mną tam, gdzie Ja jestem, aby\n" +
+            "widzieli chwałę moją, którą Mi dałeś” (J 17,24)",
           reflection: "„Ojcze, chcę, aby także ci, których Mi dałeś, byli ze Mną tam, gdzie Ja jestem, aby\n" +
             "widzieli chwałę moją, którą Mi dałeś” (J 17,24). Jezus odkupił Maryję przed\n" +
             "wszystkimi ludźmi. Dla swych przyszłych zasług wybrał Ją, zachował od grzechu i\n" +
@@ -313,6 +344,7 @@ const settingsVariablesMixins = {
         {
           id: 20,
           text: "Ukoronowanie Matki Bożej w niebie",
+          bible: "Ja przekazuję wam królestwo, jak Mnie przekazał je mój Ojciec\" (Łk 22,29)",
           reflection: "„Ja przekazuję wam królestwo, jak Mnie przekazał je mój Ojciec\" (Łk 22,29).\n" +
             "Dobroć Jezusa nie ma granic. Jego prawdomówność i wierność obficie wypełniają\n" +
             "dane obietnice. Maryja była „uboga w duchu”, więc pierwsza otrzymała\n" +

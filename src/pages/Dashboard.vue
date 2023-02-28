@@ -9,7 +9,7 @@
           is-showed="true"
           title="Tajemnica różańca"
           :subtitle="mystery.text"
-          :content="mystery.text"
+          :content="mystery.bible"
           icon="fa-solid fa-cross"
       ></dashboard-card>
       <dashboard-card
