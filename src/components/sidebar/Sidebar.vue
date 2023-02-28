@@ -49,3 +49,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+ion-title {
+  color: var(--ion-card-background, var(--ion-item-background, var(--ion-background-color, #fff)));
+}
+</style>
