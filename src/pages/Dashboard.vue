@@ -1,6 +1,6 @@
 <template>
   <base-layout title="O Nią & O Niego">
-    <ion-content v-if="!loading">
+    <ion-content v-if="!loading" class="ion-padding">
       <dashboard-panel
           :date="dateToDisplay"
           :liturgicDay="liturgicDayTitle"
