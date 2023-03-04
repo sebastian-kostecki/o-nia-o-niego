@@ -73,7 +73,8 @@ export default {
       isGospelView: true,
       isReflectionsView: true,
       isPatronPrayerView: true,
-      loading: true
+      loading: true,
+      loadingGospel: false
     };
   },
   computed: {
@@ -141,6 +142,7 @@ export default {
       this.loading = value;
     },
     getLiturgyOfDay() {
+      this.loadingGospel = true
       Api.get(`https://publication.evangelizo.ws/PL/days/${this.getDate()}`)
         .then((response) => {
           let readings = response.data.data.readings;
@@ -150,7 +152,9 @@ export default {
         })
         .catch(function () {
           // handle error
-        })
+        }).finally(() => {
+          this.loadingGospel = false;
+      })
     },
     getDate() {
       let today = new Date();
