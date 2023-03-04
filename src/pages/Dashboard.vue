@@ -77,7 +77,7 @@ export default {
       isGospelView: true,
       isReflectionsView: true,
       isPatronPrayerView: true,
-      loading: true
+      loading: true,
     };
   },
   computed: {
@@ -103,6 +103,7 @@ export default {
       await this.getBeginningDate();
       await this.delayedExecution();
       await this.setLoading(false)
+      await this.checkIsDataExists();
     },
     async delayedExecution() {
       await new Promise(resolve => setTimeout(resolve, 1000));
@@ -165,6 +166,11 @@ export default {
       let day = today.getDate().toString().padStart(2, '0');
       return `${year}-${month}-${day}`;
     },
+    checkIsDataExists() {
+      if (!this.mystery && !this.patron && !this.beginningDate) {
+        this.$router.push('/settings');
+      }
+    }
   }
 };
 </script>
