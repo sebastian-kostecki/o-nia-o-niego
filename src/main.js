@@ -25,7 +25,7 @@ import "@ionic/vue/css/display.css";
 import "./theme/variables.css";
 
 /* Base Components */
-import BaseLayout from "./components/BaseLayout.vue";
+import BaseLayout from "./components/layout/BaseLayout.vue";
 import FontAwesomeIcon from "@/icons/fontAwesomeIcon";
 
 const app = createApp(App)

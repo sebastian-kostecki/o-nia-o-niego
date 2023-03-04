@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import BaseLayout from "@/components/BaseLayout.vue";
+import BaseLayout from "@/components/layout/BaseLayout.vue";
 import { IonContent, IonList, IonItem, IonLabel } from "@ionic/vue";
 export default {
   name: "AboutApplication",

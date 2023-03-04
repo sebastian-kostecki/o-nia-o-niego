@@ -39,12 +39,15 @@
           :is-showed-subtitle="false"
       ></dashboard-card>
     </ion-content>
+    <loading-layout v-else></loading-layout>
   </base-layout>
 </template>
 
 <script>
 import axios from "axios";
-import BaseLayout from "../components/BaseLayout.vue";
+import {IonContent} from "@ionic/vue";
+import BaseLayout from "../components/layout/BaseLayout.vue";
+import LoadingLayout from "@/components/layout/LoadingLayout.vue";
 import DashboardCard from "@/components/dashboard/DashboardCard.vue";
 import DashboardPanel from "@/components/dashboard/DashboardPanel.vue";
 import DatabaseService from "@/services/database";
@@ -56,8 +59,10 @@ export default {
   name: "dash-board",
   components: {
     BaseLayout,
+    LoadingLayout,
     DashboardCard,
     DashboardPanel,
+    IonContent
   },
   mixins: [SettingsVariablesMixins],
   data() {
@@ -69,12 +74,10 @@ export default {
       mystery: null,
       patron: null,
       beginningDate: "",
-      timeToEnd: "Do końca pozostało 20 dni",
       isGospelView: true,
       isReflectionsView: true,
       isPatronPrayerView: true,
-      loading: true,
-      loadingGospel: false
+      loading: true
     };
   },
   computed: {
@@ -86,8 +89,6 @@ export default {
   },
   created() {
     DatabaseService.initDatabase();
-  },
-  mounted() {
     this.getViews();
   },
   methods: {
@@ -100,7 +101,11 @@ export default {
       await this.getMysteryOfRosary();
       await this.getPatronPrayer();
       await this.getBeginningDate();
+      await this.delayedExecution();
       await this.setLoading(false)
+    },
+    async delayedExecution() {
+      await new Promise(resolve => setTimeout(resolve, 1000));
     },
     async getIsGospelView() {
       this.isGospelView = await DatabaseService.getData('is_gospel_view');
@@ -138,11 +143,10 @@ export default {
       diff += date2.getMonth();
       return diff;
     },
-    setLoading(value) {
+    async setLoading(value) {
       this.loading = value;
     },
     getLiturgyOfDay() {
-      this.loadingGospel = true
       Api.get(`https://publication.evangelizo.ws/PL/days/${this.getDate()}`)
         .then((response) => {
           let readings = response.data.data.readings;
@@ -152,9 +156,7 @@ export default {
         })
         .catch(function () {
           // handle error
-        }).finally(() => {
-          this.loadingGospel = false;
-      })
+        })
     },
     getDate() {
       let today = new Date();
@@ -170,5 +172,11 @@ export default {
 <style scoped>
 ion-content {
   --background: var(--ion-color-primary);
+}
+ion-img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 </style>
