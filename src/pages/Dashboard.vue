@@ -2,10 +2,12 @@
   <base-layout title="O Nią & O Niego">
     <ion-content v-if="!loading" class="ion-padding">
       <dashboard-panel
+          v-if="dateToDisplay && dateToDisplay"
           :date="dateToDisplay"
           :liturgicDay="liturgicDayTitle"
       ></dashboard-panel>
       <dashboard-card
+          v-if="mystery"
           is-showed="true"
           title="Tajemnica różańca"
           :subtitle="mystery.text"
@@ -13,6 +15,7 @@
           icon="fa-solid fa-cross"
       ></dashboard-card>
       <dashboard-card
+          v-if="patron"
           :is-showed="isPatronPrayerView"
           title="Modlitwa do patrona"
           :subtitle="patron.text"
@@ -20,12 +23,14 @@
           icon="fa-solid fa-hands-praying"
       ></dashboard-card>
       <dashboard-card
+          v-if="mystery"
           :is-showed="isReflectionsView"
           title="Rozważanie"
           :content="mystery.reflection"
           icon="fa-solid fa-book-open"
       ></dashboard-card>
       <dashboard-card
+          v-if="gospel"
           :is-showed="isGospelView"
           title="Ewangelia na dziś"
           icon="fa-solid fa-bible"
