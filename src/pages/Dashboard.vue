@@ -38,6 +38,13 @@
           :subtitle="gospel.title"
           :is-showed-subtitle="false"
       ></dashboard-card>
+      <ion-button
+          class="ion-margin-start ion-margin-end"
+          size="large"
+          expand="block"
+          fill="outline"
+          color="light"
+      >Pomodliłem się</ion-button>
     </ion-content>
     <loading-layout v-else></loading-layout>
   </base-layout>
@@ -45,7 +52,7 @@
 
 <script>
 import axios from "axios";
-import {IonContent} from "@ionic/vue";
+import { IonContent, IonButton } from "@ionic/vue";
 import BaseLayout from "../components/layout/BaseLayout.vue";
 import LoadingLayout from "@/components/layout/LoadingLayout.vue";
 import DashboardCard from "@/components/dashboard/DashboardCard.vue";
@@ -62,7 +69,8 @@ export default {
     LoadingLayout,
     DashboardCard,
     DashboardPanel,
-    IonContent
+    IonContent,
+    IonButton
   },
   mixins: [SettingsVariablesMixins],
   data() {
@@ -172,6 +180,9 @@ export default {
       }
     }
   }
+  //zrobić jeszcze zapis modlitwy
+  //pobranie modlitwy do wyświetlenia
+  //zrobienie warunku jaka płeć
 };
 </script>
 
@@ -179,10 +190,7 @@ export default {
 ion-content {
   --background: var(--ion-color-primary);
 }
-ion-img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+ion-button {
+  font-weight: bold;
 }
 </style>

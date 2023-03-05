@@ -31,7 +31,8 @@ import {
   IonToolbar,
   IonButtons,
   IonMenuButton,
-  IonTitle
+  IonTitle,
+  IonMenu
 } from "@ionic/vue";
 import SidebarList from "@/components/sidebar/SidebarList.vue";
 import SidebarItem from "@/components/sidebar/SidebarItem.vue";
@@ -46,7 +47,8 @@ export default {
     IonMenuButton,
     IonTitle,
     SidebarList,
-    SidebarItem
+    SidebarItem,
+    IonMenu
   },
   props: {
     title: String,
@@ -79,5 +81,6 @@ export default {
 ion-title,
 ion-menu-button {
   color: var(--ion-card-background, var(--ion-item-background, var(--ion-background-color, #fff)));
+  font-weight: bold;
 }
 </style>
