@@ -121,9 +121,3 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-ion-list {
-  margin-top: 56px;
-}
-</style>

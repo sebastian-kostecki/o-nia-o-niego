@@ -2,7 +2,7 @@
   <div>
     <base-layout title="Ustawienia">
       <ion-content>
-        <general-list class="ion-margin-top"></general-list>
+        <general-list></general-list>
         <interface-list></interface-list>
       </ion-content>
     </base-layout>

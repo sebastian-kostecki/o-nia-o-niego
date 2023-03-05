@@ -5,35 +5,42 @@ const settingsVariablesMixins = {
         {
           id: 1,
           text: "Trójca Święta",
-          prayer: "O Trójco Święta, Boże nasz, błagam Cię o Twoją łaskę i pomoc w poszukiwaniu odpowiedniego współmałżonka.\n" +
-            "\n Ojcze niebieski, Ty jesteś miłującym Ojcem, który zawsze nas prowadzi i chroni. Proszę, abyś pomógł mi znaleźć osobę, z którą będę mógł dzielić swoje życie, która będzie ze mną dzieliła radości i smutki, która będzie mi towarzyszyć w mojej wierze i pomagać mi rozwijać się duchowo.\n" +
-            "\n Synu Boży, Jezu Chryste, Ty jesteś naszym Zbawicielem i Mistrzem, który pokazał nam, jak kochać i służyć. Proszę, abyś pomógł mi znaleźć osobę, która będzie dla mnie dobrym współmałżonkiem, która mnie szanuje i kocha, która będzie ze mną dzieliła moją wiarę i pomagała mi rozwijać się duchowo.\n" +
-            "\n Duchu Święty, Ty jesteś naszym Przewodnikiem i nauczycielem, który ożywia nasze serca i umysły. Proszę, abyś pomógł mi w poszukiwaniach i wyborze odpowiedniego partnera, który będzie dla mnie najlepszy, kto będzie mi pomagał rozwijać się jako osoba i chrześcijanin.\n" +
-            "\n O Trójco Święta, proszę, abyście byli ze mną w moim poszukiwaniu dobrego współmałżonka. Proszę, abyście pomogli mi znaleźć osobę, która będzie dla mnie najlepsza i która będzie pomagała mi rozwijać się duchowo. Amen."
+          prayer: "O Trójco Przenajświętsza, źródło najdoskonalszej miłości!\n" +
+            "Tak bardzo pragnę miłości, tak bardzo jej potrzebuje.\n" +
+            "Naucz mnie kochać Boga obecnego w innej osobie. Naucz mnie żyć w zgodzie ze sobą, bo przecież Ty żyjesz i przenikasz wszystko .\n" +
+            "Daj mi zrozumieć sens mojego czekania na Współmałżonka i pomóż mi iść właściwą drogą, która zmierza ku Tobie.\n" +
+            "Przenikaj moje serce i myśli!\n" +
+            "Pomóż mi poznać Prawdę!\n" +
+            "Uzdrawiaj moje rany, przeprowadzaj mnie przez kryzysy!\n" +
+            "Daj mi mądrość i mocną wiarę, aby w swoim życiu zawsze wybierałe(a)m Boga. Amen."
         },
         {
           id: 2,
           text: "Święta Rodzina",
-          prayer: "O Święta Rodzino Jezusa, Maryi i Józefa, błagam Was o Waszą modlitwę w moim poszukiwaniu odpowiedniego współmałżonka.\n" +
-            "\n Jezu, Synu Boży, Ty zawsze spełniasz nasze potrzeby i modlitwy. Proszę, dopomóż mi w znalezieniu osoby, która będzie dla mnie najlepszym towarzyszem w życiu, którego będę mógł kochać i szanować, który będzie ze mną dzielił radości i smutki.\n" +
-            "\n Maryjo, Matko Boża, Ty jesteś wzorem matczynej miłości i troski. Proszę, abyś patrzyła na mnie łaskawie i wstawiała się za mną u swojego Syna, aby pomógł mi w wyborze odpowiedniego partnera. Proszę, abyś objęła mnie swoim matczynym płaszczem i ochraniała mnie przed złymi wpływami.\n" +
-            "\n Józefie, Patronie Kościoła, Ty byłeś dobrym mężem i opiekunem dla Maryi i Jezusa. Proszę, abyś pomógł mi znaleźć odpowiedniego partnera, który będzie dla mnie dobrym mężem i ojcem, który będzie mnie wspierał i chronił w trudnych momentach.\n" +
-            "\n O Święta Rodzino, proszę, abyście byli ze mną w moim poszukiwaniu dobrego współmałżonka. Proszę, abyście pomogli mi wybrać osobę, która będzie dla mnie najlepsza i która będzie pomagała mi rozwijać się duchowo. Amen."
+          prayer: "O Święta Rodzino! Jak bardzo się cieszę, że mam tak piękny wzór Rodziny!\n" +
+            "Dziś stoję wśród tak wielu ludzi, a mimo wszystko czuję się samotna. " +
+            "Wlej w moje serce spokój. Taki spokój, jaki mieliście, będąc razem. " +
+            "Bo z jedności płynie spokój, radość, sens i miłość, o które tak bardzo proszę Boga za Waszym wstawiennictwem.\n" +
+            "Kiedy jest mi ciężko, bądźcie przy mnie!\n" +
+            "Kiedy chwieją się moje kroki - kierujcie moim sercem i nogami!\n" +
+            "Kiedy tracę sens - pomóżcie mi go odnaleźć!\n" +
+            "Święta Rodzino, przykładzie pokory, zaufania i pobożności, naucz mnie iść Twoimi śladami. Amen."
         },
         {
           id: 3,
           text: "Duch Święty",
-          prayer: "O Duchu Święty, proszę Cię o Twoją pomoc w znalezieniu mi odpowiedniego współmałżonka.\n" +
-            "\n Rozgrzej mój serce swoim ogniem miłości i otwórz moje oczy na to, co jest ważne w życiu. Pomóż mi znaleźć kogoś, kto będzie ze mną dzielił mój świat, kto będzie moim najlepszym przyjacielem i towarzyszem drogi.\n" +
-            "\n Pomóż mi znaleźć kogoś, kto będzie dla mnie dobrym współmałżonkiem, który mnie kocha i szanuje, który będzie ze mną dzielił radości i smutki, kto będzie ze mną dzielił moją wiarę i pomagał mi rozwijać się duchowo.\n" +
-            "\n Daj mi siłę i cierpliwość w poszukiwaniach, aby nie poddać się, gdy trudności i przeszkody staną na mojej drodze. Daj mi mądrość, aby umieć wybrać odpowiedniego partnera, który będzie mnie wspierał w mojej wierze i pomagał mi rozwijać się jako osoba.\n" +
-            "\n O Duchu Święty, błagam Cię, abyś prowadził mnie i pomagał mi znaleźć odpowiedniego partnera, z którym będę mógł dzielić swoje życie. Amen."
+          prayer: "Duchu Święty, który jesteś wszędzie i przenikasz wszystko! " +
+            "Pragnę podążać za Twoim głosem. Chcę słuchać i słyszeć Twoje natchnienia.\n" +
+            "Otwórz moje serce i umysł na Boże Słowo względem mnie. Prowadź mnie, ucz mnie chodzić drogami wiary, nadziei i miłości.\n" +
+            "Daj mi dobre natchnienia i wspierające myśli, kiedy jest mi ciężko!\n" +
+            "Rozświetlaj ciemności mojego serca, pomagaj walczyć z moimi ograniczeniami i pokusami.\n" +
+            "Naucz mnie prawdziwej wolności i miłości."
         }
       ],
       mysteryOfRosary: [
         {
           id: 1,
-          text: "Zwiastowanie",
+          text: "Zwiastowanie Pańskie",
           bible: "Oto poczniesz i porodzisz Syna, któremu nadasz imię Jezus” (Łk 1,31)",
           reflection: "„Oto poczniesz i porodzisz Syna, któremu nadasz imię Jezus” (Łk 1,31). Druga\n" +
             "Osoba Trójcy Świętej, z dawna obiecywany i przepowiadany Mesjasz, w łonie\n" +

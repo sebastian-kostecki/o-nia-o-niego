@@ -1,11 +1,13 @@
 <template>
   <base-layout title="O Nią & O Niego">
-    <ion-content v-if="!loading">
+    <ion-content v-if="!loading" class="ion-padding">
       <dashboard-panel
+          v-if="dateToDisplay && dateToDisplay"
           :date="dateToDisplay"
           :liturgicDay="liturgicDayTitle"
       ></dashboard-panel>
       <dashboard-card
+          v-if="mystery"
           is-showed="true"
           title="Tajemnica różańca"
           :subtitle="mystery.text"
@@ -13,6 +15,7 @@
           icon="fa-solid fa-cross"
       ></dashboard-card>
       <dashboard-card
+          v-if="patron"
           :is-showed="isPatronPrayerView"
           title="Modlitwa do patrona"
           :subtitle="patron.text"
@@ -20,12 +23,14 @@
           icon="fa-solid fa-hands-praying"
       ></dashboard-card>
       <dashboard-card
+          v-if="mystery"
           :is-showed="isReflectionsView"
           title="Rozważanie"
           :content="mystery.reflection"
           icon="fa-solid fa-book-open"
       ></dashboard-card>
       <dashboard-card
+          v-if="gospel"
           :is-showed="isGospelView"
           title="Ewangelia na dziś"
           icon="fa-solid fa-bible"
@@ -33,13 +38,23 @@
           :subtitle="gospel.title"
           :is-showed-subtitle="false"
       ></dashboard-card>
+      <ion-button
+          class="ion-margin-start ion-margin-end"
+          size="large"
+          expand="block"
+          fill="outline"
+          color="light"
+      >Pomodliłem się</ion-button>
     </ion-content>
+    <loading-layout v-else></loading-layout>
   </base-layout>
 </template>
 
 <script>
 import axios from "axios";
-import BaseLayout from "../components/BaseLayout.vue";
+import { IonContent, IonButton } from "@ionic/vue";
+import BaseLayout from "../components/layout/BaseLayout.vue";
+import LoadingLayout from "@/components/layout/LoadingLayout.vue";
 import DashboardCard from "@/components/dashboard/DashboardCard.vue";
 import DashboardPanel from "@/components/dashboard/DashboardPanel.vue";
 import DatabaseService from "@/services/database";
@@ -51,8 +66,11 @@ export default {
   name: "dash-board",
   components: {
     BaseLayout,
+    LoadingLayout,
     DashboardCard,
     DashboardPanel,
+    IonContent,
+    IonButton
   },
   mixins: [SettingsVariablesMixins],
   data() {
@@ -64,11 +82,10 @@ export default {
       mystery: null,
       patron: null,
       beginningDate: "",
-      timeToEnd: "Do końca pozostało 20 dni",
       isGospelView: true,
       isReflectionsView: true,
       isPatronPrayerView: true,
-      loading: true
+      loading: true,
     };
   },
   computed: {
@@ -80,8 +97,6 @@ export default {
   },
   created() {
     DatabaseService.initDatabase();
-  },
-  mounted() {
     this.getViews();
   },
   methods: {
@@ -94,7 +109,12 @@ export default {
       await this.getMysteryOfRosary();
       await this.getPatronPrayer();
       await this.getBeginningDate();
+      await this.delayedExecution();
       await this.setLoading(false)
+      await this.checkIsDataExists();
+    },
+    async delayedExecution() {
+      await new Promise(resolve => setTimeout(resolve, 1000));
     },
     async getIsGospelView() {
       this.isGospelView = await DatabaseService.getData('is_gospel_view');
@@ -132,7 +152,7 @@ export default {
       diff += date2.getMonth();
       return diff;
     },
-    setLoading(value) {
+    async setLoading(value) {
       this.loading = value;
     },
     getLiturgyOfDay() {
@@ -154,12 +174,23 @@ export default {
       let day = today.getDate().toString().padStart(2, '0');
       return `${year}-${month}-${day}`;
     },
+    checkIsDataExists() {
+      if (!this.mystery && !this.patron && !this.beginningDate) {
+        this.$router.push('/settings');
+      }
+    }
   }
+  //zrobić jeszcze zapis modlitwy
+  //pobranie modlitwy do wyświetlenia
+  //zrobienie warunku jaka płeć
 };
 </script>
 
 <style scoped>
 ion-content {
   --background: var(--ion-color-primary);
+}
+ion-button {
+  font-weight: bold;
 }
 </style>

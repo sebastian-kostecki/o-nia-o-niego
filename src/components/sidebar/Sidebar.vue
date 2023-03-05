@@ -4,7 +4,7 @@
       <ion-title class="ion-margin">O Nią & O Niego</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-content>
+  <ion-content class="ion-padding">
     <sidebar-list>
       <sidebar-item v-for="item in items" :key="item.name" :item="item"></sidebar-item>
     </sidebar-list>
