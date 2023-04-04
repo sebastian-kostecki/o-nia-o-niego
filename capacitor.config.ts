@@ -1,8 +1,8 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
-  appName: 'OnaOn',
+  appId: 'kostecki.sebastian.o.nia.o.niego',
+  appName: 'O Nią &amp; O Niego',
   webDir: 'dist',
   bundledWebRuntime: false
 };

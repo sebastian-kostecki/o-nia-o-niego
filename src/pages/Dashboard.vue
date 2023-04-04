@@ -8,7 +8,7 @@
       ></dashboard-panel>
       <dashboard-card
           v-if="mystery"
-          is-showed="true"
+          :is-showed="true"
           title="Tajemnica różańca"
           :subtitle="mystery.text"
           :content="mystery.bible"
@@ -38,13 +38,6 @@
           :subtitle="gospel.title"
           :is-showed-subtitle="false"
       ></dashboard-card>
-      <ion-button
-          class="ion-margin-start ion-margin-end"
-          size="large"
-          expand="block"
-          fill="outline"
-          color="light"
-      >Pomodliłem się</ion-button>
     </ion-content>
     <loading-layout v-else></loading-layout>
   </base-layout>
@@ -52,7 +45,7 @@
 
 <script>
 import axios from "axios";
-import { IonContent, IonButton } from "@ionic/vue";
+import { IonContent } from "@ionic/vue";
 import BaseLayout from "../components/layout/BaseLayout.vue";
 import LoadingLayout from "@/components/layout/LoadingLayout.vue";
 import DashboardCard from "@/components/dashboard/DashboardCard.vue";
@@ -69,8 +62,7 @@ export default {
     LoadingLayout,
     DashboardCard,
     DashboardPanel,
-    IonContent,
-    IonButton
+    IonContent
   },
   mixins: [SettingsVariablesMixins],
   data() {
@@ -164,7 +156,7 @@ export default {
           this.liturgicDayTitle = response.data.data.liturgic_title;
         })
         .catch(function () {
-          // handle error
+          this.isGospelView = false;
         })
     },
     getDate() {
@@ -178,11 +170,8 @@ export default {
       if (!this.mystery && !this.patron && !this.beginningDate) {
         this.$router.push('/settings');
       }
-    }
-  }
-  //zrobić jeszcze zapis modlitwy
-  //pobranie modlitwy do wyświetlenia
-  //zrobienie warunku jaka płeć
+    },
+  },
 };
 </script>
 
