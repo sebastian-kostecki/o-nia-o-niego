@@ -1,55 +1,61 @@
 <template>
-  <base-layout title="O Nią & O Niego">
-    <ion-content v-if="!loading" class="ion-padding">
-      <dashboard-panel
-          v-if="dateToDisplay && dateToDisplay"
-          :date="dateToDisplay"
-          :liturgicDay="liturgicDayTitle"
-      ></dashboard-panel>
-      <dashboard-card
-          v-if="mystery"
-          :is-showed="true"
-          title="Tajemnica różańca"
-          :subtitle="mystery.text"
-          :content="mystery.bible"
-          icon="fa-solid fa-cross"
-      ></dashboard-card>
-      <dashboard-card
-          v-if="patron"
-          :is-showed="isPatronPrayerView"
-          title="Modlitwa do patrona"
-          :subtitle="patron.text"
-          :content="patron.prayer"
-          icon="fa-solid fa-hands-praying"
-      ></dashboard-card>
-      <dashboard-card
-          v-if="mystery"
-          :is-showed="isReflectionsView"
-          title="Rozważanie"
-          :content="mystery.reflection"
-          icon="fa-solid fa-book-open"
-      ></dashboard-card>
-      <dashboard-card
-          v-if="gospel"
-          :is-showed="isGospelView"
-          title="Ewangelia na dziś"
-          icon="fa-solid fa-bible"
-          :content="gospelText"
-          :subtitle="gospel.title"
-          :is-showed-subtitle="false"
-      ></dashboard-card>
-    </ion-content>
-    <loading-layout v-else></loading-layout>
-  </base-layout>
+    <base-layout title="O Nią & O Niego">
+        <ion-content v-if="!loading" class="ion-padding">
+            <dashboard-panel
+                    v-if="dateToDisplay && dateToDisplay"
+                    :date="dateToDisplay"
+                    :liturgicDay="liturgicDayTitle"
+            ></dashboard-panel>
+            <dashboard-card
+                    v-if="mystery"
+                    :is-showed="true"
+                    title="Tajemnica różańca"
+                    :subtitle="mystery.text"
+                    :content="mystery.bible"
+                    icon="fa-solid fa-cross"
+            ></dashboard-card>
+            <dashboard-card
+                    v-if="patron"
+                    :is-showed="isPatronPrayerView"
+                    title="Modlitwa do patrona"
+                    :subtitle="patron.text"
+                    :content="patron.prayer"
+                    icon="fa-solid fa-hands-praying"
+            ></dashboard-card>
+            <dashboard-card
+                    v-if="mystery"
+                    :is-showed="isReflectionsView"
+                    title="Rozważanie"
+                    :content="mystery.reflection"
+                    icon="fa-solid fa-book-open"
+            ></dashboard-card>
+            <dashboard-card
+                    v-if="gospel"
+                    :is-showed="isGospelView"
+                    title="Ewangelia na dziś"
+                    icon="fa-solid fa-bible"
+                    :content="gospelText"
+                    :subtitle="gospel.title"
+                    :is-showed-subtitle="false"
+            ></dashboard-card>
+           <prayed-button
+                   v-if="!isPrayedToday"
+                   :gender="gender"
+                   @prayed="checkPrayedToday"
+           />
+        </ion-content>
+        <loading-layout v-else></loading-layout>
+    </base-layout>
 </template>
 
 <script>
 import axios from "axios";
-import { IonContent } from "@ionic/vue";
+import {IonContent} from "@ionic/vue";
 import BaseLayout from "../components/layout/BaseLayout.vue";
 import LoadingLayout from "@/components/layout/LoadingLayout.vue";
 import DashboardCard from "@/components/dashboard/DashboardCard.vue";
 import DashboardPanel from "@/components/dashboard/DashboardPanel.vue";
+import PrayedButton from "@/components/dashboard/PrayedButton.vue";
 import DatabaseService from "@/services/database";
 import SettingsVariablesMixins from "@/mixins/settingsVariablesMixins";
 
@@ -62,7 +68,8 @@ export default {
     LoadingLayout,
     DashboardCard,
     DashboardPanel,
-    IonContent
+    IonContent,
+    PrayedButton
   },
   mixins: [SettingsVariablesMixins],
   data() {
@@ -74,6 +81,8 @@ export default {
       mystery: null,
       patron: null,
       beginningDate: "",
+      gender: "",
+      prayedDates: [],
       isGospelView: true,
       isReflectionsView: true,
       isPatronPrayerView: true,
@@ -85,6 +94,10 @@ export default {
       let gospelAfter = this.gospel.text.replace(/\[[^\]]*\]/g, '');
       gospelAfter = gospelAfter.replaceAll(']', '');
       return gospelAfter;
+    },
+    isPrayedToday() {
+      const today = this.getTodayInFormat();
+      return this.prayedDates.includes(today);
     }
   },
   created() {
@@ -101,6 +114,8 @@ export default {
       await this.getMysteryOfRosary();
       await this.getPatronPrayer();
       await this.getBeginningDate();
+      await this.getGender();
+      await this.getPrayedDates();
       await this.delayedExecution();
       await this.setLoading(false)
       await this.checkIsDataExists();
@@ -138,6 +153,15 @@ export default {
       const date = await DatabaseService.getData('beginning_date');
       return new Date(date);
     },
+    async getGender() {
+      this.gender = await DatabaseService.getData('gender');
+    },
+    async getPrayedDates() {
+      this.prayedDates = await DatabaseService.getData('prayed_dates');
+      if (!this.prayedDates) {
+        this.prayedDates = [];
+      }
+    },
     monthsDiff(date1, date2) {
       let diff = (date2.getFullYear() - date1.getFullYear()) * 12;
       diff -= date1.getMonth() + 1;
@@ -148,7 +172,7 @@ export default {
       this.loading = value;
     },
     getLiturgyOfDay() {
-      Api.get(`https://publication.evangelizo.ws/PL/days/${this.getDate()}`)
+      Api.get(`https://publication.evangelizo.ws/PL/days/${this.getTodayInFormat()}`)
         .then((response) => {
           let readings = response.data.data.readings;
           this.gospel = readings.at(-1);
@@ -159,7 +183,7 @@ export default {
           this.isGospelView = false;
         })
     },
-    getDate() {
+    getTodayInFormat() {
       let today = new Date();
       let year = today.getFullYear();
       let month = (today.getMonth() + 1).toString().padStart(2, '0');
@@ -171,15 +195,22 @@ export default {
         this.$router.push('/settings');
       }
     },
+    async checkPrayedToday() {
+      const today = this.getTodayInFormat();
+      this.prayedDates.push(today);
+      await DatabaseService.setData('prayed_dates', this.prayedDates);
+      this.isPrayedToday = true;
+    }
   },
 };
 </script>
 
 <style scoped>
 ion-content {
-  --background: var(--ion-color-primary);
+    --background: var(--ion-color-primary);
 }
+
 ion-button {
-  font-weight: bold;
+    font-weight: bold;
 }
 </style>
