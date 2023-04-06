@@ -1,6 +1,6 @@
 <template>
   <ion-content>
-    <ion-img src="/assets/rose.png"></ion-img>
+    <ion-img src="/assets/rose-white.png"></ion-img>
   </ion-content>
 </template>
 
