@@ -136,8 +136,12 @@ export default {
       const now = new Date();
       const beginning = await this.getBeginningDate();
       const difference = this.monthsDiff(beginning, now);
-      const mysteryOfRosaryId = await DatabaseService.getData('first_mystery');
-      this.mystery = await this.getMystery(mysteryOfRosaryId + difference + 1);
+      const firstMysteryId = await DatabaseService.getData('first_mystery');
+      let currentMysteryId = firstMysteryId + difference + 1;
+      if (currentMysteryId > 20) {
+          currentMysteryId = currentMysteryId - 20;
+      }
+      this.mystery = await this.getMystery(currentMysteryId);
     },
     getMystery(id) {
       return this.mysteryOfRosary.find(item => item.id === id)
